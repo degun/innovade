@@ -6,7 +6,8 @@ const Footer = (props) => {
     <div className="footer_wrapper">
       <div className="footer_items">
         <div className="footer_logo">
-          <img src="https://via.placeholder.com/167x30" alt="INNOVADE LOGO" />
+          <img className="Logo__bottom"
+                  src={require('./../photos/logo.png')} alt="INNOVADE LOGO" />
         </div>
         <div className="footer_link">
           <ul className="list__wrapper">

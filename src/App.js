@@ -2,7 +2,7 @@ import React, {Component} from "react"
 import Cart from "./components/Cart"
 import Models from "././components/Models"
 import Contact from "././components/Contact"
-import Flavors from "././components/Flavors"
+import Flavors from "./components/Accessories"
 import FrontPage from "././components/FrontPage"
 import History from "./components/History"
 import { Link } from "react-scroll"
@@ -112,7 +112,8 @@ class App extends Component {
             <div className="Logo__wrapper">
               <Link to="Story" onClick={this.closeMobileMenu}>
                 <img
-                  src="https://via.placeholder.com/130x30"
+                  className="Logo__top"
+                  src={require('./../src/photos/logo.png')}
                   alt="INNOVADE LOGO"
                 />
               </Link>
@@ -169,7 +170,7 @@ class App extends Component {
                   spy={true}
                   smooth={true}
                 >
-                  Flavors<span className="yellow__dot">&nbsp;</span>
+                  Accessories<span className="yellow__dot">&nbsp;</span>
                 </Link>
               </li>
               <li className="List__item">
@@ -199,9 +200,9 @@ class App extends Component {
                 )}
               </li>
               <li className="List__item_adj">
-                <img
+                <img className="small__shisha"
                   style={{verticalAlign: "middle"}}
-                  src="https://via.placeholder.com/30x35"
+                  src={require('./../src/photos/small.png')}
                   alt="shisha_logo"
                 />
               </li>

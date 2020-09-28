@@ -16,14 +16,14 @@ class Models extends Component {
   render() {
 
     const settings = {
-      dots: false,
-      infinite: false,
       speed: 500,
-      slidesToShow: 4,
+      slidesToShow: 2,
       slidesToScroll: 1,
-      arrows: true,
+      infinite: true,
+      dots: false,
       draggable: true,
       autoplay: true,
+      pauseOnFocus: true,
 
       responsive: [
         {

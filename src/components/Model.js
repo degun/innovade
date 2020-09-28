@@ -7,7 +7,7 @@ const Model = (props) => {
       <Discount />
       <div className = "Model__wrapper">
               <div className = "Model__photo">
-                  <img src={props.model.photo} alt="Model__1" / >
+                  <img className="model_photo" src={props.model.photo} alt="Model__1" / >
               </div>
 
               <div className = "Model__title" > {props.model.name} </div> 

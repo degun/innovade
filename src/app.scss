@@ -132,7 +132,7 @@ ul li {
 .active {
   .yellow__dot {
     text-align: center !important;
-    background: #ffd527;
+    background: #56BAD9;
     width: 6px;
     height: 6px;
     border-radius: 100%;
@@ -171,7 +171,15 @@ ul {
 
 .Logo__wrapper {
   width: 50%;
-  padding: 45px 0px 0px 60px;
+  padding: 60px 0px 0px 60px;
+}
+.Logo__top{
+  height:auto;
+  width:130px;
+}
+.Logo__bottom{
+  height:auto;
+  width:160px;
 }
 
 .nav_wrapper {
@@ -199,15 +207,17 @@ a {
   top: 0;
   right: 0;
 }
+.small__shisha{
+  height:40px;
+}
 
 .List__item {
-  padding: 50px 10px 0px 40px;
+  padding: 50px 0px 0px 40px;
   color: white;
 }
 
 .List__item_adj {
   padding: 42px 60px 0px 0px;
-  color: white;
 }
 
 .shisha_logo {
@@ -222,10 +232,10 @@ a {
 
 .Our__story {
   height: 780px;
-  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1)),
-    url("https://via.placeholder.com/800x500");
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-color: black !important;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0), rgba(221, 221, 221, 0.1)),
+    url("./photos/Group\ 55.png") center no-repeat, url("./photos/smoke.png") right -1000px bottom -600px, no-repeat;
+  background-size: 160% 160%,  30% 60%;
   color: #fff;
 }
 
@@ -253,7 +263,7 @@ a {
 
 .fa-angle-up, .fa-angle-down {
   font-size: 28px;
-  color:#ffd527;
+  color:#56BAD9;
   padding:8px;
 }
 .Model__name{
@@ -298,7 +308,7 @@ a {
 }
 
 .Shop__now {
-  color: #ffd527;
+  color: #56BAD9;
   font-family: "ATOsmose-Regular";
   font-weight: 400;
   font-style: normal;
@@ -318,6 +328,9 @@ a {
 .Model__photo {
   display: inline-block;
   padding-top: 65px;
+}
+.model_photo{
+width: 180px;
 }
 .reverse{
   display: inline-flex;
@@ -414,16 +427,15 @@ a {
 
   .Our__story {
     height: auto;
-    background-image: linear-gradient(
-        0deg,
-        rgba(0, 0, 0, 0),
-        rgba(0, 0, 0, 0.1)
-      ),
-      url("https://via.placeholder.com/400x800");
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
+    background-color: black !important;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1)),
+      url("./photos/Group\ 55.png") center no-repeat;
+    background-size: 100% 100%, 60% 50%;
+    color: #fff;
+    background-clip: content-box;
   }
 
+  
   .Social__section {
     padding-top: 20px;
     padding-left: 5px;
@@ -446,7 +458,7 @@ a {
 
   .Logo__wrapper {
     width: 50%;
-    padding: 25px 0px 0px 30px;
+    padding: 33px 0px 0px 30px;
   }
 
   .List__item {
@@ -511,32 +523,32 @@ a {
 /* MODELS
  * ============================== */
 
-.Grey__bg {
+.White__bg {
   height: 100%;
   width: 25%;
-  background-color: #dfdfdf;
+  background-color: #f2f2f2;
   outline: none;
   .Discount {
-    display: inline;
+    display: none;
   }
 }
 .Grey__bg_adj {
   height: 100%;
   width: 25%;
-  background-color: #dfdfdf;
+  background-color: #fff;
   outline: none;
   .Discount {
     display: none;
   }
 }
 
-.White__bg {
+.Grey__bg {
   height: 100%;
   width: 25%;
   background-color: white;
   outline: none !important;
   .Discount {
-    display: none;
+    display: inline;
   }
 }
 
@@ -584,12 +596,12 @@ a {
   justify-content: center;
   align-items: center;
   z-index: 0;
-  margin: 40px 0px 0px 40px;
+  margin: 60px 0px 0px 210px;
   padding: 20px 0px 0px 20px;
 }
 
 .Discount__text {
-  color: #5238cb;
+  color: #56BAD9;
   text-align: center;
   justify-content: center;
   font-family: "WorkSans-Regular";
@@ -665,7 +677,7 @@ a {
 .Button:active,
 .Button:focus {
   outline: none;
-  color: #ffd527;
+  color: #56BAD9;
 }
 
 .Button_wrapper {
@@ -690,7 +702,7 @@ a {
   font-size: 1.8rem;
   color: white;
   padding-left: 20px;
-  border-left: 4px solid #5238cb;
+  border-left: 4px solid #FFD527;
   margin: 0;
   font-family: "ATOsmose-Regular";
   font-weight: 400;
@@ -720,8 +732,10 @@ a {
 .Philosophy {
   width: 50%;
   height: auto;
-  background-image: url("https://via.placeholder.com/800x800");
-  background-size: 100% 100%;
+  background-image: url("./photos/history.png");
+  box-shadow: inset 1000px 1000px 1000px rgba(199, 198, 198, 0.8);
+  background-size: 70% 80%;
+  background-position: center bottom;
   background-repeat: no-repeat;
   padding: 50px 0px 50px 60px;
 }
@@ -732,13 +746,15 @@ a {
 }
 
 .And__prop {
-  color: #5238cb;
+  color:#FFD527;
   font-size: 24rem;
   text-align: right;
-  line-height: 0.4;
-  opacity: 0.6;
+  line-height: 0.75;
+  opacity: 0.65;
   z-index: -1;
-  font-family: "Adieu";
+  font-family: "WorkSans-Regular";
+  font-weight: 300;
+  font-style: normal;
 }
 
 .Philosophy__text {
@@ -751,7 +767,6 @@ a {
   font-family: "ATOsmose-Light";
   font-weight: 300;
   font-style: normal;
-  padding-top: 40px;
   padding-bottom: 18px;
 }
 
@@ -858,7 +873,7 @@ a {
 
   .And__prop {
     font-size: 21rem;
-    line-height: 0.1;
+    line-height: 0.5;
     padding-bottom: 45px;
   }
 
@@ -958,7 +973,7 @@ a {
 
 .footer_wrapper {
   width: 100%;
-  height: 320px;
+  height: 100%;
   background-color: #121212;
   justify-content: center;
   text-align: left;
@@ -1030,6 +1045,7 @@ a {
   font-family: "WorkSans-Regular";
   font-weight: 400;
   font-style: normal;
+  padding-bottom: 50px;
 }
 
 .circle {
@@ -1048,7 +1064,7 @@ a {
   }
 
   .footer_wrapper {
-    height: 360px;
+    height: 100%;
     justify-content: left !important;
     text-align: left !important;
     align-items: left !important;
@@ -1092,7 +1108,6 @@ a {
 
   .Copyright {
     display: block !important;
-    float: left !important;
     padding-top: 20px !important;
   }
 
@@ -1287,27 +1302,23 @@ a {
 .Product__wrapper {
   width: 100%;
   display: inline-flex;
-  height: 450px;
+  height: auto;
 }
 
-.Details__wrapper {
-  background-image: url("http://via.placeholder.com/600x600");
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-}
+
 
 .Tech__wrapper {
-  background-image: url("http://via.placeholder.com/600x600");
+  background-image: url("./photos/shisha_girl.png");
   background-repeat: no-repeat;
   background-size: 100% 100%;
-  padding: 40px 0px 0px 0px;
+  padding: 70px 0px 0px 0px;
 }
 
 .Details__wrapper,
 .Tech__wrapper {
   width: 50%;
   background-color: #767676;
-  height: 100%;
+  height: auto;
   align-items: center;
   text-align: center;
 }
@@ -1315,12 +1326,30 @@ a {
 .Text__tech {
   text-align: left;
   color: white;
-  font-size: 5.8rem;
+  font-size: 5rem;
   font-family: "ATOsmose-Light";
   font-weight: 300;
   font-style: normal;
   display: inline-block;
+  .Technology__text {
+    transform: rotate(-90deg);
+    font-size: 1rem;
+    width:0%;
+  }  
 }
+
+.Shisha__enthusiast{
+  font-size: 1rem !important;
+  font-family: "ATOsmose-Light";
+  font-weight: 300;
+  font-style: normal;
+  color: white;
+  width: 50%;
+  justify-content: flex-end;
+  align-items: flex-end;
+  text-align: center;
+}
+
 
 .Join__text {
   text-align: left;
@@ -1329,7 +1358,76 @@ a {
   font-family: "ATOsmose-Light";
   font-weight: 300;
   font-style: normal;
-  display: block;
+  width: 50%;
+}
+.Text__wraper{
+  font-family: "WorkSans-Regular";
+  font-weight: 400;
+  font-style: normal;
+  display: inline-flex;
+  width: 80%;
+}
+.Details__wrapper {
+  background-color: #707070;
+  height: auto;
+  width:50%;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  padding-bottom: 30px;
+}
+
+.News__wrapper{
+  width:75%;
+  align-items: center;
+  position: relative;
+  justify-content: center;
+  text-align: center;
+  margin: auto;
+}
+.News__title{
+  padding-top:50px;
+  padding-bottom:30px;
+  font-size: 1.2rem;
+  font-family: "WorkSans-Regular";
+  font-weight: 400;
+  font-style: normal;
+  text-align: left;color:white;
+}
+
+.News__item{
+  border-bottom: 1px solid white;
+  display: inline-flex;
+  padding-bottom: 10px;
+  margin-bottom: 25px;
+  width: 100%;
+}
+.news{
+  font-size: 0.7rem;
+  font-family: "WorkSans-Regular";
+  font-weight: 400;
+  font-style: normal;
+  width:50%;
+  text-align: left;
+  line-height: 1.5;
+  color:white;
+}
+.date{
+  font-family: "WorkSans-Regular";
+  width:50%;
+  font-size: 0.7rem;
+  font-weight: 400;
+  text-align: right;
+  font-style: normal;
+  color:white;
+}
+
+.News__link{
+  font-family: "WorkSans-Regular";
+  width:100%;
+  font-size: 0.6rem;
+  color:#FFD527 !important;
+  text-align: center;
 }
 
 @media (max-width: 992px) and (min-width: 768px) {
@@ -1342,24 +1440,36 @@ a {
   .Product__wrapper {
     width: 100%;
     display: block !important;
-    height: 700px !important;
+    height: 100% !important;
   }
 
-  .Details__wrapper,
+
   .Tech__wrapper {
     width: 100% !important;
     height: 100% !important;
     height: 350px !important;
+    padding-top: 30px !important;
+
+  }
+  .Details__wrapper {
+    width: 100% !important;
+    height: auto !important;
   }
 
   .Text__tech {
     font-size: 4.5rem !important;
   }
+ 
+}
+@media only screen and (max-width: 480px) {
+  .Text__wraper {
+    width: 95% !important;
+  }
 }
 
 @media only screen and (max-width: 320px) {
   .Text__tech {
-    font-size: 4rem !important;
+    font-size: 3.8rem !important;
   }
 }
 

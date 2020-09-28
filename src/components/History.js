@@ -29,14 +29,10 @@ const History = (props) => {
         </div>
         <div className="Philosophy">
           <div className="History__text">
-            innovade
-            <br />
-            <br />
             history
           </div>
 
           <div className="And__prop">&#38;</div>
-
           <div className="Philosophy__text">philosophy</div>
         </div>
       </div>
