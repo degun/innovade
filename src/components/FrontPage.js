@@ -68,9 +68,9 @@ const FrontPage = (props) => {
             </div>
           </div>
         </div>
-
+        <div className="Height"></div>
         <div className="Social__section">
-          <a href="https://www.instagram.com/">Instagram</a>/
+          <a href="https://www.instagram.com/">Instagram</a>&nbsp;/&nbsp;
           <a href="https://www.facebook.com/">Facebook</a>
         </div>
       </div>

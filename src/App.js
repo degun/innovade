@@ -2,7 +2,6 @@ import React, {Component} from "react"
 import Cart from "./components/Cart"
 import Models from "././components/Models"
 import Contact from "././components/Contact"
-import Flavors from "./components/Accessories"
 import FrontPage from "././components/FrontPage"
 import History from "./components/History"
 import { Link } from "react-scroll"
@@ -25,6 +24,7 @@ import {
   associateCustomerCheckout,
 } from "./checkout"
 import "./app.scss";
+import Accessories from "./components/Accessories"
 
 
 class App extends Component {
@@ -164,9 +164,9 @@ class App extends Component {
                   className="click"
                   onClick={this.closeMobileMenu}
                   activeClass="active"
-                  offset={-80}
-                  duration={-20}
-                  to="Flavors"
+                  offset={-5}
+                  duration={100}
+                  to="Accessories"
                   spy={true}
                   smooth={true}
                 >
@@ -179,6 +179,7 @@ class App extends Component {
                   onClick={this.closeMobileMenu}
                   activeClass="active"
                   duration={-20}
+                  offset={-270}
                   to="Contact"
                   spy={true}
                   smooth={true}
@@ -224,10 +225,7 @@ class App extends Component {
             checkout={this.state.checkout} 
           />
           <History />
-          <Flavors 
-            addVariantToCart={this.addVariantToCart}
-            checkout={this.state.checkout} 
-          />
+          <Accessories />
           <Contact />
         </Router>
         <Cart

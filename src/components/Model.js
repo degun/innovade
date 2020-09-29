@@ -10,7 +10,7 @@ const Model = (props) => {
                   <img className="model_photo" src={props.model.photo} alt="Model__1" / >
               </div>
 
-              <div className = "Model__title" > {props.model.name} </div> 
+              <div className = "Model__title"> {props.model.name} </div> 
                   <div className = "Model__desc">
                   {props.model.description}
                      </div> 

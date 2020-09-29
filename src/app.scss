@@ -235,7 +235,7 @@ a {
   background-color: black !important;
   background: linear-gradient(0deg, rgba(0, 0, 0, 0), rgba(221, 221, 221, 0.1)),
     url("./photos/Group\ 55.png") center no-repeat, url("./photos/smoke.png") right -1000px bottom -600px, no-repeat;
-  background-size: 160% 160%,  30% 60%;
+  background-size: 160% 160%,  auto 50%;
   color: #fff;
 }
 
@@ -243,7 +243,7 @@ a {
   letter-spacing: 40px;
   font-size: 1.2rem;
   padding-top: 400px;
-  width: 70%;
+  width: 61%;
   justify-content: center;
   text-align: center;
   font-family: "ATSurt-Light";
@@ -289,6 +289,7 @@ a {
 .Story__wrapper {
   display: inline-flex;
   width: 100%;
+  height: 90%;
 }
 
 .ModelX__desc {
@@ -313,12 +314,15 @@ a {
   font-weight: 400;
   font-style: normal;
 }
+.Height {
+  width:100%;
+}
 
 .Social__section {
   padding-left: 60px;
   justify-content: end;
-  padding-top: 230px;
   font-family: "ATSurt-Light";
+  position: absolute;
 }
 
 .Ham__wrapper {
@@ -344,6 +348,15 @@ width: 180px;
   }
   .Slider__wrapper{
     padding-left: 8px !important;
+  }
+  .Title {
+    letter-spacing: 38px;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .Title {
+    letter-spacing: 38px;
   }
 }
 
@@ -393,6 +406,7 @@ width: 180px;
   .Story__wrapper {
     display: block;
     width: 100%;
+    //height: 80% !important;
   }
 
   .Slider__wrapper{
@@ -405,7 +419,7 @@ width: 180px;
 
   .Model__name {
     padding-right: 0px !important;
-    padding-top: 50px !important;
+    padding-top: 100px !important;
   }
   .Model__content {
     vertical-align: middle;
@@ -417,7 +431,7 @@ width: 180px;
   .Title {
     letter-spacing: 50px !important;
     font-size: 1rem !important;
-    padding-top: 200px !important;
+    padding-top: 170px !important;
     width: 100% !important;
     justify-content: center !important;
     padding-left: 50px !important;
@@ -426,13 +440,13 @@ width: 180px;
   }
 
   .Our__story {
-    height: auto;
     background-color: black !important;
     background: linear-gradient(0deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1)),
       url("./photos/Group\ 55.png") center no-repeat;
-    background-size: 100% 100%, 60% 50%;
+    background-size: auto 35%;
     color: #fff;
     background-clip: content-box;
+    height: 670px;
   }
 
   
@@ -441,6 +455,7 @@ width: 180px;
     padding-left: 5px;
     text-align: center !important;
     padding-bottom: 30px;
+    width: 100%;
   }
 
   .Ham__wrapper {
@@ -567,7 +582,8 @@ width: 180px;
   font-family: "WorkSans-Regular";
   font-weight: 400;
   font-style: normal;
-  white-space: pre-line !important;
+    white-space: pre-line !important;
+    padding: 0px 195px;
 }
 
 .Model__button {
@@ -646,16 +662,31 @@ width: 180px;
   .Discount {
     margin: 40px 0px 0px 10px !important;
   }
+  .Model__desc{
+    padding: 0px 100px !important;
+  }
 }
 
 @media only screen and (max-width: 765px) {
-  .Discount {
-    margin: 40px 0px 0px 50px !important;
+  .Model__desc{
+    padding: 0px 60px !important;
   }
 }
+@media only screen and (max-width: 459px) {
+  .Discount {
+    margin: 40px 0px 0px 70px !important;
+  }
+  .Model__desc{
+    padding: 0px 100px !important;
+  }
+}
+
 @media only screen and (max-width: 375px) {
   .Discount {
     margin: 40px 0px 0px 70px !important;
+  }
+  .Model__desc{
+    padding: 0px 60px !important;
   }
 }
 
@@ -1142,158 +1173,71 @@ width: 180px;
   }
 }
 
-/* FLAVORS
+/* ACCESSORIES
  * ============================== */
-
-.Flavors__title {
-  font-size: 1.7rem;
-  color: #1d1d1d;
-  font-family: "WorkSans-Regular";
-  font-weight: 400;
-  font-style: normal;
-}
-
-.Tab__links {
-  background: none !important;
-  border: none !important;
-  padding: 0 !important;
-  color: #1d1d1d !important;
-  text-decoration: none !important;
-  cursor: pointer !important;
-  padding: 30px !important;
-  font-size: 1rem !important;
-  border-color: white !important;
-  font-family: "WorkSans-Regular" !important;
-  font-weight: 400 !important;
-  font-style: normal !important;
-}
-
-.Tab__links:hover,
-.Tab__links:focus,
-.Tab__links:active {
-  border: none !important;
-  border-color: white !important;
-  color: #00a566 !important;
-  outline: none !important;
-}
-
-.tab-list {
-  padding: 10px 10px 30px 10px !important;
-  flex-direction: row !important;
-  color: #1d1d1d;
-}
-
-.Tabs {
-  width: 100%;
+.Accessories__wrapper{
+  width:100%;
+  background-color:  #f3f3f3 !important;
+  background: url("./photos/1559831138smoke-png-transparent-10@2x.png") center no-repeat;
+  background-size: 120% 120%;
   height: 650px;
-  padding: 70px 120px 0px 120px;
-  justify-content: center;
+}
+
+.Unique__title{
+  color:white;
   text-align: center;
-  align-items: center;
+  justify-content: center;
+  vertical-align: center;
+  margin: auto;
+  font-size: 7rem;
   font-family: "WorkSans-Regular";
   font-weight: 400;
   font-style: normal;
+  padding-top: 250px;
+  letter-spacing: 10px;
 }
-
-.Flavor__photo {
-  border-radius: 50%;
-}
-
-.Flavor__wrapper {
-  width: 100%;
-  align-content: center;
-  align-items: center;
-  text-align: center;
+.Unique_product{
+  position: relative;
+  z-index: 10;
+  vertical-align: top;
+  display: flex;
   justify-content: center;
-  height: 100%;
-  margin: 0px 0px;
-  padding: 0px 10px;
-}
-
-.Flavor__title {
-  padding: 20px 0px 0px 0px;
-  color: #1d1d1d;
-  font-family: "WorkSans-Regular";
-  font-weight: 400;
-  font-style: normal;
-}
-
-.Flavor__desc {
-  //padding: 10px 10px 0px 10px;
-  //white-space: pre-wrap;
-  font-size: 0.75rem;
-  color: #797979;
-  font-family: "WorkSans-Regular";
-  font-weight: 400;
-  font-style: normal;
-  padding: 0px 10px;
-}
-
-.Flavor__button {
-  padding-top: 25px;
-}
-
-.Photo__wrapper {
-  justify-content: center;
-  text-align: center;
-  align-content: center;
   align-items: center;
-  display: inline-block;
+  top:-35%;
+  margin: auto;
 }
-
 @media only screen and (width: 1024px) {
-  .Tabs {
-    padding: 70px 100px 0px 80px !important;
-  }
+ 
 }
 
 @media only screen and (max-width: 992px) {
-  .Tab__links {
-    padding: 0px 30px !important;
-  }
-
-  .Tabs {
-    width: 100%;
-    height: 550px;
-    padding: 40px 20px 0px 20px;
-    justify-content: center;
-    text-align: center;
-    align-items: center;
-  }
-
-  .tab_list {
-    display: inline-flex !important;
-    flex-direction: row !important;
-  }
-
-  .Photo__wrapper {
-    padding-top: 62px !important;
-  }
-
-  .tab-list {
-    padding: 30px 10px 5px 10px !important;
-    flex-direction: row !important;
-    overflow: scroll !important;
-    white-space: nowrap;
-    color: #707070;
-  }
+  
 }
 
-@media (max-width: 991px) and (min-width: 768px) {
-  .Flavor__title {
-    padding: 20px 0px 0px 0px;
+@media only screen and (max-width: 768px) {
+  .Accessories__wrapper{
+    height: 500px;
+  }
+  .Unique__title {
+    padding-top: 200px !important;
+    font-size: 6rem;
+  }
+  .Unique_product{
+    top: -40%;
+    height:60%;
   }
 }
-
-@media (max-width: 459px) and (min-width: 376px) {
-  .Flavor__wrapper{
-    padding: 0px 50px;
+  @media only screen and (max-width: 400px) {
+    .Unique__title {
+      font-size: 4rem;
     }
-}
-
-@media only screen and(max-width: 375px) {
-  .Flavor__wrapper{
-  padding: 0px 10px;
+    .Accessories__wrapper {
+      height: 480px;
+      background-size: 215% 110%;
+  }
+  .Unique_product{
+    top: -40%;
+    height:60%;
   }
 }
 /* PRODUCT DETAILS
@@ -1304,8 +1248,6 @@ width: 180px;
   display: inline-flex;
   height: auto;
 }
-
-
 
 .Tech__wrapper {
   background-image: url("./photos/shisha_girl.png");
