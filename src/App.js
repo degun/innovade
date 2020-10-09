@@ -144,7 +144,7 @@ class App extends Component {
           handleCartClose={this.handleCartClose}
           customerAccessToken={this.state.customerAccessToken}
         />
-        <ContactForm isOpen={this.state.contact} />
+        <ContactForm isOpen={this.state.contact} closeModal={() => this.setState({contact: false})} />
       </React.Fragment>
     )
   }

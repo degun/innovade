@@ -3,7 +3,7 @@ import Modal from 'react-modal';
 import TextField from '@material-ui/core/TextField'
 import {ThemeProvider, createMuiTheme} from '@material-ui/core/styles'
 
-function ContactForm({isOpen}){
+function ContactForm({isOpen, closeModal}){
 
     const darkTheme = createMuiTheme({
         palette: {
@@ -26,7 +26,7 @@ function ContactForm({isOpen}){
     return(
         <Modal
           isOpen={isOpen}
-          onRequestClose={() => this.setState({contact: false})}
+          onRequestClose={closeModal}
           contentLabel="Contact"
           shouldCloseOnOverlayClick={true}
           shouldCloseOnEsc={true}
