@@ -1,11 +1,9 @@
 import React, {Component} from "react"
 import { Switch, Route } from 'react-router-dom';
 import Cart from "./components/Cart";
-import Modal from 'react-modal';
+import ContactForm from "./components/ContactForm";
 import Home from './components/Home';
 import Footer from "./components/Footer"
-import TextField from '@material-ui/core/TextField'
-import {ThemeProvider, createMuiTheme} from '@material-ui/core/styles'
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 import PropTypes from "prop-types"
@@ -101,24 +99,6 @@ class App extends Component {
 
   render() {
 
-    const darkTheme = createMuiTheme({
-      palette: {
-        type: 'dark',
-      },
-    });
-
-    const customStyles = {
-      overlay : {
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center'
-      },
-      content : {
-        position: 'relative',
-        backgroundColor: "#000"
-      }
-    };
-
     if (this.props.data.loading) {
       return <p>Loading ...</p>
     }
@@ -164,40 +144,7 @@ class App extends Component {
           handleCartClose={this.handleCartClose}
           customerAccessToken={this.state.customerAccessToken}
         />
-        <Modal
-          isOpen={this.state.contact}
-          onRequestClose={() => this.setState({contact: false})}
-          contentLabel="Contact"
-          shouldCloseOnOverlayClick={true}
-          shouldCloseOnEsc={true}
-          style={customStyles}
-        >
-          <div className="left">
-            <img className="Unique_product" src={require("./photos/history.png")} alt="Unique_product" />
-          </div>
-          <div className="right">
-            <h2>Let's talk</h2>
-            <h4>Drop us a few lines</h4>
-            <form>
-              <ThemeProvider theme={darkTheme}>
-                <div className="row">
-                  <TextField style={{width: "47.5%", marginRight: "2.5%"}} color="primary" id="name" label="name" />
-                  <TextField style={{width: "47.5%", marginLeft: "2.5%"}} color="primary" id="email" type="email" label="email" />
-                </div>
-                <div className="row">
-                  <TextField style={{width: "100%", marginTop: "20px"}} rows={8} color="primary" id="message" label="message" variant="filled" multiline />
-                </div>
-                <div className="row-three">
-                  <button>Send</button>
-                  <div className="contacts">
-                    <a href="tel:+44 7800 600001">+44 7800 600001</a>
-                    <a href="mailto:info@innovade.com">info@innovade.com</a>
-                  </div>
-                </div>
-              </ThemeProvider>
-          </form>
-          </div>
-        </Modal>
+        <ContactForm isOpen={this.state.contact} />
       </React.Fragment>
     )
   }
