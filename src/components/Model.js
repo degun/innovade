@@ -2,20 +2,20 @@ import Discount from "./Discount";
 import React from "react";
 import Button from "./Button";
 
-const Model = (props) => {
+const Model = ({model, onAddCart}) => {
   return ( <React.Fragment>
       <Discount />
       <div className = "Model__wrapper">
               <div className = "Model__photo">
-                  <img className="model_photo" src={props.model.photo} alt="Model__1" / >
+                  <img className="model_photo" src={model.image} alt="Model__1" / >
               </div>
 
-              <div className = "Model__title"> {props.model.name} </div> 
+              <div className = "Model__title"> {model.name} </div> 
                   <div className = "Model__desc">
-                  {props.model.description}
+                  {model.description}
                      </div> 
               <div className = "Model__button" >
-              <Button onAddCart={props.onAddCart}>Add to Cart </Button> </div> 
+              <Button onAddCart={() => onAddCart(model.id, 1)}>Add to Cart </Button> </div> 
     </div>
       </React.Fragment>)
 }

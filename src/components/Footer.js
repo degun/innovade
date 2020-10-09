@@ -1,7 +1,8 @@
 import React from "react";
+import { Link } from 'react-router-dom'
 
 
-const Footer = (props) => {
+const Footer = ({openContactForm}) => {
   return (
     <div className="footer_wrapper">
       <div className="footer_items">
@@ -12,13 +13,13 @@ const Footer = (props) => {
         <div className="footer_link">
           <ul className="list__wrapper">
             <li className="link_item">
-              <a href="https://www.google.com/">Shop</a>
+              <Link to="/shop">Shop</Link>
             </li>
             <li className="link_item">
-              <a href="https://www.google.com/">About</a>
+              <Link to="/about">About</Link>
             </li>
             <li className="link_item">
-              <a href="https://www.google.com/">Contact</a>
+              <a onClick={openContactForm}>Contact</a>
             </li>
           </ul>
         </div>
@@ -38,7 +39,7 @@ const Footer = (props) => {
           *Lorem ipsum is placeholder text commonly used in the graphic.
         </div>
         <div className="Copyright__text">
-          Copyright &#169; 2020 FloriFarma. All right deserved.
+          Copyright &#169; 2020 Innovade. All right deserved.
         </div>
       </div>
     </div>

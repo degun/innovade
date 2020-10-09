@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Model from "./Model";
 import Slider from "react-slick";
-import modelData from './ExampleModels'
+// import modelData from './ExampleModels'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
@@ -9,7 +9,7 @@ import "slick-carousel/slick/slick-theme.css";
 class Models extends Component {
   
   state = {
-    models: modelData,
+    models: this.props.models,
     quantity: 1,
   }
 
@@ -55,13 +55,12 @@ class Models extends Component {
         },
       ],
     };
-    
-   let quantity = this.state.quantity;
-   let modelItems = this.state.models.map(model =>
-    <div key={model.id} className={model.id % 2 === 1 ? 
-        model.id === 1 ? "Grey__bg" : "Grey__bg_adj" : 
+  //  let quantity = this.state.quantity;
+   const modelItems = this.props.models.map((model, i) =>
+    <div key={model.id} className={i % 2 === 1 ? 
+        i === 1 ? "Grey__bg_adj" : "Grey__bg" : 
         "White__bg"}> 
-      <Model onAddCart={() => this.props.addVariantToCart(model.id, quantity)}  key={model.id}  model={model}/>
+      <Model onAddCart={this.props.addVariantToCart}  key={model.id}  model={model}/>
     </div> )
 
     return (

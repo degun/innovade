@@ -24,9 +24,9 @@ class LineItem extends Component {
         </div>
         <div className="Line-item__content">
           <div className="Line-item__content-row">
-            <div className="Line-item__variant-title">
+            {/* <div className="Line-item__variant-title">
               {this.props.line_item.variant.title}
-            </div>
+            </div> */}
             <span className="Line-item__title">
               {this.props.line_item.title}
             </span>
@@ -38,7 +38,7 @@ class LineItem extends Component {
               <button className="Line-item__quantity-update" onClick={() => this.incrementQuantity(this.props.line_item.id)}>+</button>
             </div>
             <span className="Line-item__price">
-              $ { (this.props.line_item.quantity * this.props.line_item.variant.price).toFixed(2) }
+              {Intl.NumberFormat('it-IT', { style: 'currency', currency: 'EUR' }).format(this.props.line_item.quantity * this.props.line_item.variant.price)}
             </span>
             <button className="Line-item__remove" onClick={()=> this.props.removeLineItemInCart(this.props.line_item.id)}>×</button>
           </div>

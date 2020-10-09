@@ -115,8 +115,9 @@ export function addVariantToCart(variantId, quantity){
 }
 
 export function updateLineItemInCart(lineItemId, quantity){
+  console.log(quantity)
   this.props.checkoutLineItemsUpdate(
-    { variables: { checkoutId: this.state.checkout.id, lineItems: [{id: lineItemId, quantity: parseInt(quantity, 100)}] }
+    { variables: { checkoutId: this.state.checkout.id, lineItems: [{id: lineItemId, quantity}] }
     }).then((res) => {
     this.setState({
       checkout: res.data.checkoutLineItemsUpdate.checkout

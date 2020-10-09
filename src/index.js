@@ -8,6 +8,7 @@ import { InMemoryCache } from "apollo-cache-inmemory";
 import { ApolloProvider } from "react-apollo";
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
 import reducer from './store/reducer'
 
 const httpLink = createHttpLink({
@@ -28,7 +29,11 @@ const client = new ApolloClient({
 const store = createStore( reducer);
 ReactDOM.render(
   <ApolloProvider client={client}>
-    <Provider store={store}><App /></Provider>
+    <Provider store={store}>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </Provider>
   </ApolloProvider>,
   document.getElementById("root")
 );

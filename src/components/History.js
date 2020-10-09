@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 
 const History = (props) => {
   return (
@@ -21,20 +22,20 @@ const History = (props) => {
             </div>
 
             <div className="Explore__link">
-              <a href="www.google.com" style={{ color: "#8b8b8b" }}>
+              <Link to="/experience" style={{ color: "#8b8b8b" }}>
                 explore
-              </a>
+              </Link>
             </div>
           </div>
         </div>
-        <div className="Philosophy">
+        <Link to="/philosophy" className="Philosophy">
           <div className="History__text">
             history
           </div>
 
           <div className="And__prop">&#38;</div>
           <div className="Philosophy__text">philosophy</div>
-        </div>
+        </Link>
       </div>
     </React.Fragment>
   );

@@ -1,13 +1,13 @@
 import React, {Component} from "react"
-import Cart from "./components/Cart"
-import Models from "././components/Models"
-import Contact from "././components/Contact"
-import FrontPage from "././components/FrontPage"
-import History from "./components/History"
-import { Link } from "react-scroll"
+import { Switch, Route } from 'react-router-dom';
+import Cart from "./components/Cart";
+import Modal from 'react-modal';
+import Home from './components/Home';
+import Footer from "./components/Footer"
+import TextField from '@material-ui/core/TextField'
+import {ThemeProvider, createMuiTheme} from '@material-ui/core/styles'
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
-import {BrowserRouter as Router} from "react-router-dom";
 import PropTypes from "prop-types"
 import {graphql} from "react-apollo"
 import {flowRight as compose} from "lodash"
@@ -24,7 +24,10 @@ import {
   associateCustomerCheckout,
 } from "./checkout"
 import "./app.scss";
-import Accessories from "./components/Accessories"
+import Navigation from './components/Navigation'
+import About from './components/About'
+import Experience from './components/Experience'
+import HistoryPhilosophy from './components/HistoryPhilosophy'
 
 
 class App extends Component {
@@ -36,6 +39,7 @@ class App extends Component {
       products: [],
       checkout: {lineItems: {edges: []}},
       click: false,
+      contact: false
     }
 
     this.handleCartClose = this.handleCartClose.bind(this)
@@ -70,6 +74,7 @@ class App extends Component {
     checkoutLineItemsAdd: PropTypes.func.isRequired,
     checkoutLineItemsUpdate: PropTypes.func.isRequired,
   }
+  
 
   handleCartOpen() {
     this.setState({
@@ -90,8 +95,30 @@ class App extends Component {
     this.setState({click: false})
   }
 
+  openContactForm = () => {
+    this.setState({contact: true, click: false})
+  }
+
   render() {
-    console.log(this.props)
+
+    const darkTheme = createMuiTheme({
+      palette: {
+        type: 'dark',
+      },
+    });
+
+    const customStyles = {
+      overlay : {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center'
+      },
+      content : {
+        position: 'relative',
+        backgroundColor: "#000"
+      }
+    };
+
     if (this.props.data.loading) {
       return <p>Loading ...</p>
     }
@@ -99,135 +126,36 @@ class App extends Component {
       return <p>{this.props.data.error.message}</p>
     }
 
+    const products = this.props.data?.shop?.products?.edges;
+    console.log(products)
+
+    const models = products.map(({node}) => {
+      const {id, description, title, images, variants} = node;
+      const image = images.edges[0].node.src;
+      return {
+        id: variants.edges[0].node.id,
+        description,
+        name: title,
+        image
+      }
+    })
+
     return (
       <React.Fragment>
-        <nav className="FrontPage__wrapper">
-          <div
-            className={
-              this.state.click
-                ? "Header__wrapper Header_active"
-                : "Header__wrapper"
-            }
-          >
-            <div className="Logo__wrapper">
-              <Link to="Story" onClick={this.closeMobileMenu}>
-                <img
-                  className="Logo__top"
-                  src={require('./../src/photos/logo.png')}
-                  alt="INNOVADE LOGO"
-                />
-              </Link>
-            </div>
-            <div className="Ham__wrapper" onClick={this.handleClick}>
-              <i
-                className={this.state.click ? "fas fa-times" : "fas fa-bars"}
-              />
-            </div>
-
-            <ul
-              className={
-                this.state.click ? "List__wrapper Nav_active" : "List__wrapper"
-              }
-            >
-              <li className="List__item">
-                <Link
-                  className="click"
-                  id="test"
-                  onClick={this.closeMobileMenu}
-                  offset={-100}
-                  activeClass="active"
-                  to="Story"
-                  spy={true}
-                  smooth={true}
-                  duration={-50}
-                >
-                  Our Story<span className="yellow__dot">&nbsp;</span>
-                </Link>
-              </li>
-
-              <li className="List__item">
-                <Link
-                  className="click"
-                  onClick={this.closeMobileMenu}
-                  activeClass="active"
-                  offset={-60}
-                  duration={-20}
-                  to="Models"
-                  spy={true}
-                  smooth={true}
-                >
-                  Models<span className="yellow__dot">&nbsp;</span>
-                </Link>
-              </li>
-              <li className="List__item">
-                <Link
-                  className="click"
-                  onClick={this.closeMobileMenu}
-                  activeClass="active"
-                  offset={-5}
-                  duration={100}
-                  to="Accessories"
-                  spy={true}
-                  smooth={true}
-                >
-                  Accessories<span className="yellow__dot">&nbsp;</span>
-                </Link>
-              </li>
-              <li className="List__item">
-                <Link
-                  className="click"
-                  onClick={this.closeMobileMenu}
-                  activeClass="active"
-                  duration={-20}
-                  offset={-270}
-                  to="Contact"
-                  spy={true}
-                  smooth={true}
-                >
-                  Contact<span className="yellow__dot">&nbsp;</span>
-                </Link>
-              </li>
-
-              <li className="List__item">
-                {!this.state.isCartOpen && (
-                  <div className="App__view-cart-wrapper click">
-                    <button
-                      className="App__view-cart"
-                      onClick={this.handleCartOpen}
-                    >
-                      Cart
-                    </button>
-                  </div>
-                )}
-              </li>
-              <li className="List__item_adj">
-                <img className="small__shisha"
-                  style={{verticalAlign: "middle"}}
-                  src={require('./../src/photos/small.png')}
-                  alt="shisha_logo"
-                />
-              </li>
-            </ul>
-          </div>
-        </nav>
-        {/*<div className="Product-wrapper">
-          { this.props.data.shop.products.edges.map(product =>
-            <Product addVariantToCart={this.addVariantToCart}
-             checkout={this.state.checkout}
-              key={product.node.id.toString()} 
-              product={product.node} />
-          )}
-          </div>*/}
-        <Router>
-          <FrontPage />
-          <Models 
-            addVariantToCart={this.addVariantToCart}
-            checkout={this.state.checkout} 
-          />
-          <History />
-          <Accessories />
-          <Contact />
-        </Router>
+        <Navigation
+          click={this.state.click}
+          closeMobileMenu={this.closeMobileMenu} 
+          handleClick={this.handleClick}
+          handleCartOpen={this.handleCartOpen}
+          openContactForm={this.openContactForm}
+        />
+        <Switch>
+          <Route exact path="/" render={() => <Home models={models} addVariantToCart={this.addVariantToCart} checkout={this.state.checkout} />} />
+          <Route exact path="/about" render={() => <About />} />
+          <Route exact path="/experience" render={() => <Experience />} />
+          <Route exact path="/philosophy" render={() => <HistoryPhilosophy />} />
+        </Switch>
+        <Footer openContactForm={this.openContactForm} />
         <Cart
           removeLineItemInCart={this.removeLineItemInCart}
           updateLineItemInCart={this.updateLineItemInCart}
@@ -236,6 +164,40 @@ class App extends Component {
           handleCartClose={this.handleCartClose}
           customerAccessToken={this.state.customerAccessToken}
         />
+        <Modal
+          isOpen={this.state.contact}
+          onRequestClose={() => this.setState({contact: false})}
+          contentLabel="Contact"
+          shouldCloseOnOverlayClick={true}
+          shouldCloseOnEsc={true}
+          style={customStyles}
+        >
+          <div className="left">
+            <img className="Unique_product" src={require("./photos/history.png")} alt="Unique_product" />
+          </div>
+          <div className="right">
+            <h2>Let's talk</h2>
+            <h4>Drop us a few lines</h4>
+            <form>
+              <ThemeProvider theme={darkTheme}>
+                <div className="row">
+                  <TextField style={{width: "47.5%", marginRight: "2.5%"}} color="primary" id="name" label="name" />
+                  <TextField style={{width: "47.5%", marginLeft: "2.5%"}} color="primary" id="email" type="email" label="email" />
+                </div>
+                <div className="row">
+                  <TextField style={{width: "100%", marginTop: "20px"}} rows={8} color="primary" id="message" label="message" variant="filled" multiline />
+                </div>
+                <div className="row-three">
+                  <button>Send</button>
+                  <div className="contacts">
+                    <a href="tel:+44 7800 600001">+44 7800 600001</a>
+                    <a href="mailto:info@innovade.com">info@innovade.com</a>
+                  </div>
+                </div>
+              </ThemeProvider>
+          </form>
+          </div>
+        </Modal>
       </React.Fragment>
     )
   }
