@@ -69,18 +69,18 @@ class AllModels extends Component {
     };
     //  let quantity = this.state.quantity;
 
-    {
-      /*const modelItems = this.props.models.map((model, i) => (
-      <div
-        key={model.id}
-        className={
-          i % 2 === 1 ? (i === 1 ? "Grey__bg_adj" : "Grey__bg") : "White__bg"
-        }
-      >
-        <BestModel key={model.id} model={model} />
-      </div>
-    ));*/
-    }
+    // {
+    //   const modelItems = this.props.models.map((model, i) => (
+    //   <div
+    //     key={model.id}
+    //     className={
+    //       i % 2 === 1 ? (i === 1 ? "Grey__bg_adj" : "Grey__bg") : "White__bg"
+    //     }
+    //   >
+    //     <BestModel key={model.id} model={model} />
+    //   </div>
+    // ));
+    // }
 
     return (
       <React.Fragment>

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Switch, Route } from "react-router-dom";
 import Cart from "./components/Cart";
 import ContactForm from "./components/ContactForm";
-import Home from "./components/Home";
+import Home from "./components/Home/Home";
 import Footer from "./components/Footer";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";

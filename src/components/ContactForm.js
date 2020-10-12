@@ -1,7 +1,8 @@
 import React from 'react';
 import Modal from 'react-modal';
 import TextField from '@material-ui/core/TextField'
-import {ThemeProvider, createMuiTheme} from '@material-ui/core/styles'
+import {ThemeProvider, createMuiTheme} from '@material-ui/core/styles';
+import './ContactForm.scss';
 
 function ContactForm({isOpen, closeModal}){
 
