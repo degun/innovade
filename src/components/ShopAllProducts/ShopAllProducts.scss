@@ -1,0 +1,156 @@
+@import "./../../app.scss";
+
+#ShopAllProducts {
+  padding-top: 90px;
+  background-color: #010101;
+}
+
+.Innovade-banner {
+  background: url("./../../photos/lemons.png") center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 280px;
+  width: 100%;
+  justify-content: center;
+  position: relative;
+  margin: auto !important;
+}
+
+.Banner-title {
+  margin: auto !important;
+  font-size: 1.9rem;
+  letter-spacing: 15px;
+  font-family: "ATSurt-Light";
+  font-weight: 300;
+  font-style: normal;
+  margin: auto;
+  color: white;
+  text-align: center;
+  padding-top: 125px;
+  height: 100%;
+  vertical-align: center;
+}
+
+.MuiList-padding {
+  flex-direction: column !important;
+  border-top: 1px solid #aaa !important;
+  border-collapse: collapse !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+.MuiListItem-gutters {
+  padding-right: 0px !important;
+  padding-left: 0px !important;
+}
+.MuiListItem-root {
+  padding-bottom: 0px !important;
+  padding-top: 14px !important;
+}
+nav {
+  overflow: hidden !important;
+  position: relative !important;
+}
+#alignment-nav {
+  z-index: 1 !important;
+  padding-left: 90px !important;
+  width: 385px !important;
+}
+.Shisha-title {
+  font-size: 2rem;
+  font-family: "Lucida Sans" !important;
+  font-weight: 300;
+  font-style: normal;
+  color: #292929;
+  text-transform: uppercase;
+  padding-bottom: 10px;
+  width: 100%;
+}
+.Shisha-text {
+  width: 102%;
+  font-size: 13px;
+  font-family: "ATOsmose-Regular" !important;
+  font-weight: 300;
+  font-style: normal;
+  line-height: 1.5;
+  padding-bottom: 20px;
+  color: #797979;
+}
+
+.Shisha-wrapper {
+  padding-left: 90px !important;
+  padding-top: 60px !important;
+}
+#Remove-space {
+  padding: 0px !important;
+  margin: 0px !important;
+  color: #8d8a8a;
+}
+#border-bottom {
+  border-bottom: 1px solid #aaa !important;
+}
+
+.BestModel-wrapper {
+  flex-wrap: wrap !important;
+  background-color: white !important;
+  flex-direction: row !important;
+  position: relative;
+  column-fill: auto;
+  display: inline-flex;
+  width: 100%;
+  padding: 0 0 30px 0;
+}
+
+#ShishaCollection {
+  width: 35%;
+  height: 100%;
+}
+#AllModels {
+  width: 65%;
+  height: 100%;
+  flex-wrap: wrap !important;
+}
+@media only screen and (max-width: 1024px) {
+  .Shisha-wrapper {
+    padding-left: 30px !important;
+    padding-top: 60px !important;
+    padding-right: 20px;
+  }
+  #alignment-nav {
+    z-index: 1 !important;
+    padding-left: 30px !important;
+    width: 310px !important;
+  }
+}
+@media only screen and (max-width: 850px) {
+  #AllModels {
+    width: 100%;
+    height: 100%;
+    flex-wrap: wrap !important;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .BestModel-wrapper {
+    display: block !important;
+  }
+  #ShishaCollection {
+    width: 100% !important;
+    padding: 0 8%;
+  }
+  #AllModels {
+    width: 100% !important;
+  }
+
+  .Shisha-wrapper {
+    justify-content: center;
+    padding-top: 30px;
+    padding-left: 0px !important;
+  }
+  #dropdown-menu {
+    width: 100% !important;
+  }
+  #alignment-nav {
+    width: 100% !important;
+    padding: 0px !important;
+    margin: 0px !important;
+  }
+}

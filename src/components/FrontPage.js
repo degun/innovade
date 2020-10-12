@@ -1,8 +1,8 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import TextTransition from "react-text-transition";
+import { Link } from "react-router-dom";
 
-const FrontPage = ({models}) => {
-
+const FrontPage = ({ models }) => {
   const [selected, setSelected] = useState(0);
 
   return (
@@ -12,30 +12,65 @@ const FrontPage = ({models}) => {
           <div className="reverse">
             <div className="Model__content">
               <span className="Model__X">
-                <TextTransition noOverflow text={models[selected].name} springConfig={ 	{ mass: 1, tension: 280, friction: 40 } } />
+                <TextTransition
+                  noOverflow
+                  text={models[selected].name}
+                  springConfig={{ mass: 1, tension: 280, friction: 40 }}
+                />
               </span>
               <br />
               <span className="ModelX__desc">
-                <TextTransition noOverflow text={models[selected].description} springConfig={ 	{ mass: 1, tension: 280, friction: 40 } } />
+                <TextTransition
+                  noOverflow
+                  text={models[selected].description}
+                  springConfig={{ mass: 1, tension: 280, friction: 40 }}
+                />
               </span>
               <br />
               <br />
-              <a className="Shop__now" href="https://www.youtube.com/">
+              <Link to="/single-product" className="Shop__now">
                 shop now
-              </a>
+              </Link>
             </div>
             <div className="Title">INNOVADE</div>
           </div>
           <div className="Slider__wrapper">
-            <div className="Model__name"><TextTransition noOverflow text={models[selected].name} springConfig={ 	{ mass: 1, tension: 280, friction: 40 } } /></div>
+            <div className="Model__name">
+              <TextTransition
+                noOverflow
+                text={models[selected].name}
+                springConfig={{ mass: 1, tension: 280, friction: 40 }}
+              />
+            </div>
             <div className="Angle__wrapper">
-              <div className="Arrow__wrapper" onClick={() => setSelected(selected === 0 ? models.length - 1 : selected - 1)}>
+              <div
+                className="Arrow__wrapper"
+                onClick={() =>
+                  setSelected(selected === 0 ? models.length - 1 : selected - 1)
+                }
+              >
                 <i className="fa fa-angle-up"></i>
               </div>
-              <div style={{display: "flex", justifyContent: "center", alignItems: "center", fontSize: 20}}>
-                <TextTransition noOverflow text={String(selected + 1).padStart(2, "0")} springConfig={ 	{ mass: 1, tension: 280, friction: 40 } } />
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  fontSize: 20,
+                }}
+              >
+                <TextTransition
+                  noOverflow
+                  text={String(selected + 1).padStart(2, "0")}
+                  springConfig={{ mass: 1, tension: 280, friction: 40 }}
+                />
               </div>
-              <div className="Arrow__wrapper" onClick={() => setSelected(selected === models.length - 1 ? 0 : selected + 1)}>
+              <div
+                className="Arrow__wrapper"
+                onClick={() =>
+                  setSelected(selected === models.length - 1 ? 0 : selected + 1)
+                }
+              >
                 <i className="fa fa-angle-down"></i>
               </div>
             </div>
@@ -48,7 +83,7 @@ const FrontPage = ({models}) => {
         </div>
       </div>
     </React.Fragment>
-  )
-}
+  );
+};
 
-export default FrontPage
+export default FrontPage;

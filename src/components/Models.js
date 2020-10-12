@@ -5,16 +5,13 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-
 class Models extends Component {
-  
   state = {
     models: this.props.models,
     quantity: 1,
-  }
+  };
 
   render() {
-
     const settings = {
       speed: 500,
       slidesToShow: 2,
@@ -55,13 +52,21 @@ class Models extends Component {
         },
       ],
     };
-  //  let quantity = this.state.quantity;
-   const modelItems = this.props.models.map((model, i) =>
-    <div key={model.id} className={i % 2 === 1 ? 
-        i === 1 ? "Grey__bg_adj" : "Grey__bg" : 
-        "White__bg"}> 
-      <Model onAddCart={this.props.addVariantToCart}  key={model.id}  model={model}/>
-    </div> )
+    //  let quantity = this.state.quantity;
+    const modelItems = this.props.models.map((model, i) => (
+      <div
+        key={model.id}
+        className={
+          i % 2 === 1 ? (i === 1 ? "Grey__bg_adj" : "Grey__bg") : "White__bg"
+        }
+      >
+        <Model
+          onAddCart={this.props.addVariantToCart}
+          key={model.id}
+          model={model}
+        />
+      </div>
+    ));
 
     return (
       <React.Fragment>

@@ -1,14 +1,16 @@
 import React from "react";
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 
-
-const Footer = ({openContactForm}) => {
+const Footer = ({ openContactForm }) => {
   return (
     <div className="footer_wrapper">
       <div className="footer_items">
         <div className="footer_logo">
-          <img className="Logo__bottom"
-                  src={require('./../photos/logo.png')} alt="INNOVADE LOGO" />
+          <img
+            className="Logo__bottom"
+            src={require("./../photos/logo.png")}
+            alt="INNOVADE LOGO"
+          />
         </div>
         <div className="footer_link">
           <ul className="list__wrapper">
@@ -26,7 +28,7 @@ const Footer = ({openContactForm}) => {
       </div>
       <div className="footer__desc">
         <div className="footer_text">
-        Sign up for exclusive discounts, rewards,
+          Sign up for exclusive discounts, rewards,
           <span className="nobr">
             <br />
           </span>
