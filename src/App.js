@@ -1,33 +1,33 @@
 import React, { Component } from "react";
 import { Switch, Route } from "react-router-dom";
-import Cart from "./components/Cart";
-import ContactForm from "./components/ContactForm";
-import Home from "./components/Home/Home";
-import Footer from "./components/Footer";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import PropTypes from "prop-types";
 import { graphql } from "react-apollo";
 import { flowRight as compose } from "lodash";
-import gql from "graphql-tag";
+import { getProducts } from './graphql/queries';
 import {
   createCheckout,
   checkoutLineItemsAdd,
   checkoutLineItemsUpdate,
   checkoutLineItemsRemove,
   checkoutCustomerAssociate,
-  addVariantToCart,
   updateLineItemInCart,
   removeLineItemInCart,
   associateCustomerCheckout,
-} from "./checkout";
-import "./app.scss";
+  addVariantToCart,
+} from "./graphql/checkout";
+import Cart from "./components/Cart";
+import ContactForm from "./components/_common/ContactForm";
+import Home from "./components/Home/Home";
+import Footer from "./components/_common/Footer";
 import Navigation from "./components/Navigation";
-import About from "./components/About";
+import About from "./components/About/About";
 import Experience from "./components/Experience";
 import HistoryPhilosophy from "./components/HistoryPhilosophy";
 import ShopAllProducts from "./components/ShopAllProducts/ShopAllProcucts";
 import ShopNow from "./components/ShopNow/ShopNow";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import "./app.scss";
 
 class App extends Component {
   constructor() {
@@ -105,17 +105,18 @@ class App extends Component {
       return <p>{this.props.data.error.message}</p>;
     }
 
-    const products = this.props.data?.shop?.products?.edges;
-    console.log(products);
+    const products = this.props.data?.products?.edges;
 
     const models = products.map(({ node }) => {
-      const { id, description, title, images, variants } = node;
+      const {handle, description, title, images, priceRange} = node;
       const image = images.edges[0].node.src;
       return {
-        id: variants.edges[0].node.id,
+        title,
+        handle,
         description,
         name: title,
         image,
+        price: priceRange?.minVariantPrice?.amount ?? 0
       };
     });
 
@@ -135,15 +136,14 @@ class App extends Component {
             render={() => (
               <Home
                 models={models}
-                addVariantToCart={this.addVariantToCart}
                 checkout={this.state.checkout}
               />
             )}
           />
           <Route exact path="/about" render={() => <About />} />
           <Route exact path="/experience" render={() => <Experience />} />
-          <Route exact path="/shop" render={() => <ShopAllProducts />} />
-          <Route exact path="/single-product" render={() => <ShopNow />} />
+          <Route exact path="/shop" render={() => <ShopAllProducts models={models} />} />
+          <Route exact path="/products/:handle" render={() => <ShopNow openCart={this.handleCartOpen} addItem={this.addVariantToCart} />} />
           <Route
             exact
             path="/philosophy"
@@ -168,66 +168,8 @@ class App extends Component {
   }
 }
 
-const query = gql`
-  query query {
-    shop {
-      name
-      description
-      products(first: 20) {
-        pageInfo {
-          hasNextPage
-          hasPreviousPage
-        }
-        edges {
-          node {
-            id
-            title
-            description
-            options {
-              id
-              name
-              values
-            }
-            variants(first: 250) {
-              pageInfo {
-                hasNextPage
-                hasPreviousPage
-              }
-              edges {
-                node {
-                  id
-                  title
-                  selectedOptions {
-                    name
-                    value
-                  }
-                  image {
-                    src
-                  }
-                  price
-                }
-              }
-            }
-            images(first: 250) {
-              pageInfo {
-                hasNextPage
-                hasPreviousPage
-              }
-              edges {
-                node {
-                  src
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-`;
-
 const AppWithDataAndMutation = compose(
-  graphql(query),
+  graphql(getProducts, {options: {variables: {first: 100}}}),
   graphql(createCheckout, { name: "createCheckout" }),
   graphql(checkoutLineItemsAdd, { name: "checkoutLineItemsAdd" }),
   graphql(checkoutLineItemsUpdate, { name: "checkoutLineItemsUpdate" }),

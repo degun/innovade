@@ -1,23 +1,19 @@
-import React from "react";
-import CustomerReview from "./../CustomerReview";
-import BestModel from "./../BestModel";
-import WeOffer from "./../WeOffer";
-import SingleProduct from "./../ShopNow/SingleProduct";
+import React, {useEffect} from "react";
+import CustomerReview from "./components/CustomerReview";
+import BestModels from "./components/BestModels";
+import WeOffer from "./components/WeOffer";
+import SingleProduct from "./components/SingleProduct";
 import "./ShopNow.scss";
 
-const ShopNow = (props) => {
+const ShopNow = ({addItem}) => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <React.Fragment>
-      <SingleProduct />
+      <SingleProduct addItem={addItem} />
       <WeOffer />
-      <div id="Reviewed-models">
-        <div className="DarkGrey-bg">
-          <BestModel />
-        </div>
-        <div className="Grey-bg">
-          <BestModel />
-        </div>
-      </div>
+      <BestModels />
       <CustomerReview />
     </React.Fragment>
   );

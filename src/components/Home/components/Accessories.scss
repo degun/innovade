@@ -1,0 +1,78 @@
+/* ACCESSORIES
+ * ============================== */
+ .Accessories__wrapper {
+    position: relative;
+    width: 100%;
+    background-color: #f3f3f3 !important;
+    background: url("../../../photos/smoke2x.png") center
+      no-repeat;
+    background-size: cover;
+    height: 650px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .Unique__title {
+      position: absolute;
+      height: 100%;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 7rem;
+      font-family: "WorkSans-Regular";
+      font-weight: 400;
+      font-style: normal;
+      letter-spacing: 10px;
+    }
+    .Unique_product {
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      width: 100%;
+      z-index: 0;
+      ._lqEjs {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      img {
+        height: 450px;
+        width: auto;
+        margin-left: -20px;
+      }
+    }
+    .Unique_description {
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      img {
+        height: 45%;
+        margin-right: 37px;
+      }
+    }
+    img.threesixty {
+      width: 60px;
+      opacity: 0.6;
+      margin-top: 400px;
+      margin-left: -20px;
+    }
+  }
+  
+  @media only screen and (max-width: 768px) {
+    .Accessories__wrapper {
+      height: 500px;
+    }
+  }
+  @media only screen and (max-width: 400px) {
+    .Unique__title {
+      font-size: 4rem;
+    }
+    .Accessories__wrapper {
+      height: 480px;
+      background-size: cover;
+    }
+  }

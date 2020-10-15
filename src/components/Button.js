@@ -1,9 +1,9 @@
 import React from "react";
 
-const Button = (props) => {
+const Button = ({onClick, children}) => {
   return (
     <div className="Button_wrapper">
-      <button onClick={props.onAddCart} className="Button">{props.children}</button>
+      <button onClick={onClick} className="Button">{children}</button>
     </div>
   );
 };

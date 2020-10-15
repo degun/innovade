@@ -39,6 +39,7 @@
     "react-text-transition": "^1.1.2",
     "react-transition-group": "^4.4.1",
     "react-tridi": "^1.0.0",
+    "react-vfx": "^0.4.1",
     "reactstrap": "^8.6.0",
     "redux": "^4.0.5",
     "sass-loader": "^10.0.2",

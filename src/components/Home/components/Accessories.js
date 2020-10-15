@@ -1,6 +1,7 @@
 import React from "react";
 import Tridi from 'react-tridi';
 import 'react-tridi/dist/index.css';
+import './Accessories.scss';
 
 const Accessories = () => {
 
@@ -22,9 +23,9 @@ const Accessories = () => {
             />
         </div>
         <div className="Unique_description">
-            <img src={require("../photos/Group 59@2x.png")} alt="Unique description" />
+            <img src={require("../../../photos/Group 59@2x.png")} alt="Unique description" />
         </div>
-        <img className="threesixty" src={require("../photos/360@2x.png")} />
+        <img className="threesixty" src={require("../../../photos/360@2x.png")} />
     </div>
 };
 

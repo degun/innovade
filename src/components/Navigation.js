@@ -77,19 +77,12 @@ const Navigation = ({click, closeMobileMenu, handleClick, handleCartOpen, openCo
                 </Link>
               </li>
               <li className="List__item">
-                    <Link
-                        className="click"
-                        onClick={openContactForm}
-                        activeClass="active"
-                        duration={-20}
-                        offset={-270}
-                        // to="Contact"
-                        spy={true}
-                        smooth={true}
-                    >
-                    Contact<span className="yellow__dot">&nbsp;</span>
-                    </Link>
-              
+                  <Link 
+                    className="click"
+                    onClick={openContactForm}
+                  >
+                    Contact
+                  </Link>
               </li>
 
               <li className="List__item">

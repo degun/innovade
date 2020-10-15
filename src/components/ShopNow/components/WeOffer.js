@@ -7,7 +7,7 @@ const WeOffer = (props) => {
         <img
           width="45px"
           height="45px"
-          src={require("./../photos/shipping.jpg")}
+          src={require("../../../photos/shipping.jpg")}
         />
         <br />
         <p className="Shipping-title">FREE SHIPPING</p>
@@ -17,7 +17,7 @@ const WeOffer = (props) => {
         <img
           width="45px"
           height="45px"
-          src={require("./../photos/quality.jpg")}
+          src={require("../../../photos/quality.jpg")}
         />
         <br />
         <p className="Shipping-title">REMARKABLE QUALITY</p>
@@ -27,7 +27,7 @@ const WeOffer = (props) => {
         <img
           width="45px"
           height="45px"
-          src={require("./../photos/warranty.jpg")}
+          src={require("../../../photos/warranty.jpg")}
         />
         <br />
         <p className="Shipping-title">ONE YEAR WARRANTY</p>

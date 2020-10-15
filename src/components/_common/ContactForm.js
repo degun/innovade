@@ -34,7 +34,7 @@ function ContactForm({isOpen, closeModal}){
           style={customStyles}
         >
           <div className="left">
-            <img className="Unique_product" src={require("../photos/history.png")} alt="Unique_product" />
+            <img className="Unique_product" src={require("../../photos/history.png")} alt="Unique_product" />
           </div>
           <div className="right">
             <h2>Let's talk</h2>

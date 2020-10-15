@@ -45,11 +45,40 @@
   width: 7%;
 }
 
-ul li img {
-  width: 75px;
-  height: auto;
-  padding: 7px;
+.carousel__wrapper, .carousel__container{
+  height: 100%;
 }
+
+.Displayed-image{
+  height: 90%;
+  padding-bottom: 10%;
+}
+
+.carousel__image{
+  object-fit: cover;
+  width: auto;
+}
+
+ul:not(#colors) li img {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  object-fit: cover;
+  &:hover{
+    cursor: pointer;
+  }
+}
+
+ul#colors li img{
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  object-fit: cover;
+  &:hover{
+    cursor: pointer;
+  }
+}
+
 .Scroll-wrapper {
   width: 55%;
   justify-content: center;
@@ -63,7 +92,7 @@ ul li img {
 }
 .first-photo {
   width: 320px;
-  height: auto;
+  height: 100%;
 }
 #left,
 #right {

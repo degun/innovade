@@ -1,43 +1,44 @@
 /* MODELS
  * ============================== */
-
- .White__bg {
-    height: 100%;
-    width: 25%;
-    background-color: #f2f2f2;
-    outline: none;
-    .Discount {
-      display: none;
-    }
-  }
-  .Grey__bg_adj {
+.Models__wrapper{
+  background-color: #f2f2f2;
+  .slick-active{
     height: 100%;
     width: 25%;
     background-color: #fff;
-    outline: none;
+    outline: none !important;
+    transition: 500 background-color linear;
     .Discount {
       display: none;
     }
-  }
-  
-  .Grey__bg {
-    height: 100%;
-    width: 25%;
-    background-color: white;
-    outline: none !important;
-    .Discount {
-      display: inline;
+    &:not(.slick-current){
+      background-color: #fff;
+    }
+    &.slick-current{
+      background-color: #f2f2f2;
+      outline: none !important;
     }
   }
-  
+}
+
   .Model__wrapper {
     width: 100%;
     height: 100%;
+    display: flex;
+    flex-direction: column;
     align-content: center;
     align-items: center;
     text-align: center;
     justify-content: center;
     height: 100%;
+    margin: 0;
+  }
+
+  .model_photo{
+    height: 200px;
+    width: 200px;
+    margin-top: 60px;
+    object-fit: cover;
   }
   
   .Model__desc {
@@ -47,7 +48,7 @@
     font-weight: 400;
     font-style: normal;
     white-space: pre-line !important;
-    padding: 0px 195px;
+    padding: 0px 195px 20px;
   }
   .BestModel__desc {
     font-size: 0.75rem;
@@ -72,6 +73,7 @@
     font-family: "WorkSans-Regular";
     font-weight: 400;
     font-style: normal;
+    white-space: nowrap;
   }
   .BestModel__title {
     padding-top: 0px !important;
@@ -118,7 +120,6 @@
     text-align: center;
     justify-content: center;
     height: 100%;
-    display: grid;
     margin: 20px 40px;
   }
   .Model__price {
@@ -162,15 +163,15 @@
   }
   
   @media only screen and (max-width: 992px) {
-    .Grey__bg {
-      width: 100% !important;
-      outline: none !important;
-    }
+    // .Grey__bg {
+    //   width: 100% !important;
+    //   outline: none !important;
+    // }
   
-    .White__bg {
-      width: 100% !important;
-      outline: none !important;
-    }
+    // .White__bg {
+    //   width: 100% !important;
+    //   outline: none !important;
+    // }
   
     .Models__wrapper {
       padding: 0;

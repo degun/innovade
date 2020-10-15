@@ -5,7 +5,7 @@ nav {
     display: flex;
     flex-direction: column;
     top: 0;
-    background: #2f2f2f;
+    background: transparent;
     overflow: auto;
     white-space: nowrap;
     z-index: 2;
@@ -16,7 +16,7 @@ nav {
     height: 90px;
     display: inline-flex;
     position: fixed;
-    background-color: black;
+    background-color: #000;
   }
   
   ul li {
@@ -126,32 +126,37 @@ nav {
   }
   
   .Our__story {
-    height: 780px;
+    position: relative;
+    height: 100vh;
     background-color: black !important;
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0), rgba(221, 221, 221, 0.1)),
-      url("../../../photos/Group\ 55.png") center no-repeat,
-      url("../../../photos/smoke.png") right -1000px bottom -600px, no-repeat;
-    background-size: 160% 160%, auto 50%;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0), rgba(221, 221, 221, 0.1)), url("../../../photos/Group\ 55.png") center no-repeat;
+    background-size: 100% 100%, auto 50%;
+    background-position-x: 53%;
     color: #fff;
+    .smoke{
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-image: url("../../../photos/smoke2x.png");
+      background-size: cover;
+    }
   }
   
   .Title {
     letter-spacing: 40px;
     font-size: 1.2rem;
-    padding-top: 400px;
-    width: 69%;
     justify-content: center;
     text-align: center;
+    vertical-align: middle;
     font-family: "ATSurt-Light";
     font-weight: 400;
     font-style: normal;
   }
   
   .Slider__wrapper {
-    padding-top: 340px;
     display: inline-flex;
     vertical-align: middle;
-    padding-left: 60px;
+    // padding-left: 60px;
     padding-right: 60px;
     font-family: "ATOsmose-Regular";
     font-weight: 400;
@@ -165,7 +170,7 @@ nav {
     padding: 8px;
   }
   .Model__name {
-    padding-top: 61px;
+    padding-top: 50px;
     padding-right: 35px;
     font-size: 14px;
     width: 200px;
@@ -177,12 +182,14 @@ nav {
   }
   .Model__content {
     vertical-align: middle;
-    height: 100%;
-    width: 31%;
-    padding: 335px 0px 0px 60px;
+    width: auto;
+    padding-left: 60px;
     font-family: "ATSurt-Light";
     font-weight: 600 !important;
     font-style: normal;
+    .text-transition {
+      width: 300px !important;
+    }
   }
   
   .Story__wrapper {
@@ -228,18 +235,16 @@ nav {
   .Ham__wrapper {
     display: none;
   }
-  
-  .Model__photo {
-    display: inline-block;
-    padding-top: 65px;
-  }
-  .model_photo {
-    width: 180px;
-  }
+
   .reverse {
-    display: inline-flex;
+    position: absolute;
+    display: flex;
     flex-direction: row;
-    width: 81%;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
   }
   
   @media only screen and (max-width: 992px) {
@@ -331,6 +336,7 @@ nav {
       text-align: center;
     }
   
+
     .Model__name {
       padding-right: 0px !important;
       padding-top: 100px !important;
@@ -367,12 +373,30 @@ nav {
   
     .Our__story {
       background-color: black !important;
-      background: linear-gradient(0deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1)),
-        url("../../../photos/Group\ 55.png") center no-repeat;
+      background: linear-gradient(0deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1)), url("../../../photos/Group\ 55.png") center no-repeat;
       background-size: auto 35%;
+      background-position: 61% 45%;
       color: #fff;
       background-clip: content-box;
       height: 800px;
+    }
+
+    .text-transition{
+      margin-left: -20px;
+    }
+
+    .Angle__wrapper{
+     display: flex;
+     justify-content: space-between;
+     width: 120px;
+     margin: 0 auto;
+     .text-transition{
+      margin-left: 0;
+     }
+    }
+
+    #Story > div{
+      position: absolute;
     }
   
     .Social__section {

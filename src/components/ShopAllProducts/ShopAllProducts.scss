@@ -107,7 +107,26 @@ nav {
 #AllModels {
   width: 65%;
   height: 100%;
-  flex-wrap: wrap !important;
+  padding-top: 45px;
+  display: flex;
+  flex-wrap: wrap;
+  .BestModel-wrapper{
+    margin-left: 0;
+    overflow: hidden; 
+    padding: 0;
+    margin: 0;
+    .Model__photo{
+      width: 100px;
+      height: auto;
+      overflow: hidden;
+      
+    }
+  }
+  .model_photo {
+    height: 350px;
+    width: 100%;
+    object-fit: cover;
+  }
 }
 @media only screen and (max-width: 1024px) {
   .Shisha-wrapper {

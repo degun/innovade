@@ -10171,6 +10171,13 @@ react-tridi@^1.0.0:
   resolved "https://registry.yarnpkg.com/react-tridi/-/react-tridi-1.0.0.tgz#2a6169e62ad26ceafcb03163921228c60d431251"
   integrity sha512-kpIHrVNGBV8TlBqVpJO1+nNTHHf7sX4q+uDdqMUc0TQEOYrwA3+iTZ4P7uCXsh60Mn+IpEgE4hklIG0XvNBW+Q==
 
+react-vfx@^0.4.1:
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/react-vfx/-/react-vfx-0.4.1.tgz#6647d90dc8557f82ebcd653ecb3dcd418a5a1727"
+  integrity sha512-SMUE6QtZk7G7+Fqhqgl0hY2/ExxmkjUViesgZFgXGoZEIh4TlOW2pdw/0sBPcnN0ywU4aAMj07SdbykOTcVyFQ==
+  dependencies:
+    three "^0.111.0"
+
 react@^16.12.0, react@^16.13.1:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react/-/react-16.13.1.tgz#2e818822f1a9743122c063d6410d85c1e3afe48e"
@@ -11633,6 +11640,11 @@ text-table@0.2.0, text-table@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/text-table/-/text-table-0.2.0.tgz#7f5ee823ae805207c00af2df4a84ec3fcfa570b4"
   integrity sha1-f17oI66AUgfACvLfSoTsP8+lcLQ=
+
+three@^0.111.0:
+  version "0.111.0"
+  resolved "https://registry.yarnpkg.com/three/-/three-0.111.0.tgz#9cedb73e79b7f6bf2440cb67a273f883faa923b6"
+  integrity sha512-AcTqyGJ3H75AIusOuADy0LsP958QKQwm/YhABHFMzd6RFXPNVay1rlSbbG6WYv7KM72G2THMMwqbjQd4dVHMkQ==
 
 throat@^4.0.0:
   version "4.1.0"

@@ -36,12 +36,37 @@
   }
   
   .Explore__link {
+    display: inline-block;
     font-size: 1.2rem;
     color: #8b8b8b;
     padding: 20px 0px 0px 110px;
     font-family: "ATOsmose-Regular";
     font-weight: 400;
     font-style: normal;
+    position: relative;
+    overflow: hidden;
+    &:hover{
+      cursor: pointer;
+      &::after{
+        width: 100%;
+      }
+    }
+    &::after{
+      content: "explore";
+      display: inline-block;
+      font-size: 1.2rem;
+      color: #ffd527;
+      padding: 20px 0px 0px 110px;
+      font-family: "ATOsmose-Regular";
+      font-weight: 400;
+      font-style: normal;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      overflow: hidden;
+      transition: 0.6s width cubic-bezier(0.075, 0.82, 0.165, 1);
+    }
   }
   
   .Philosophy {
