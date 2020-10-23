@@ -9,10 +9,11 @@ import { ApolloProvider } from "react-apollo";
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
+import { SHOPIFY_HOST } from './config';
 import reducer from './store/reducer'
 
 const httpLink = createHttpLink({
-  uri: "https://innovade-shisha.myshopify.com/api/graphql",
+  uri: `${SHOPIFY_HOST}/graphql`,
 });
 
 const middlewareLink = setContext(() => ({

@@ -76,14 +76,7 @@ const Navigation = ({click, closeMobileMenu, handleClick, handleCartOpen, openCo
                     <RLink to="/">Explore</RLink><span className="yellow__dot">&nbsp;</span>
                 </Link>
               </li>
-              <li className="List__item">
-                  <Link 
-                    className="click"
-                    onClick={openContactForm}
-                  >
-                    Contact
-                  </Link>
-              </li>
+              
 
               <li className="List__item">
                   <div className="App__view-cart-wrapper click">

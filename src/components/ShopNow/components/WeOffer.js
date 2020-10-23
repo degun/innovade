@@ -10,7 +10,7 @@ const WeOffer = (props) => {
           src={require("../../../photos/shipping.jpg")}
         />
         <br />
-        <p className="Shipping-title">FREE SHIPPING</p>
+        <p className="Shipping-title">SHIPPING WORLDWIDE</p>
         <p className="Shipping-desc">Lorem ipsum is a placeholder</p>
       </div>
       <div className="Shipping">

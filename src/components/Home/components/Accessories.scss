@@ -4,8 +4,7 @@
     position: relative;
     width: 100%;
     background-color: #f3f3f3 !important;
-    background: url("../../../photos/smoke2x.png") center
-      no-repeat;
+    background: url("../../../photos/smoke2x.png") center no-repeat;
     background-size: cover;
     height: 650px;
     display: flex;
@@ -19,7 +18,7 @@
       justify-content: center;
       align-items: center;
       font-size: 7rem;
-      font-family: "WorkSans-Regular";
+      font-family: "ATOsmose-Regular";
       font-weight: 400;
       font-style: normal;
       letter-spacing: 10px;
@@ -31,7 +30,7 @@
       align-items: center;
       height: 100%;
       width: 100%;
-      z-index: 0;
+      z-index: 1;
       ._lqEjs {
         display: flex;
         justify-content: center;

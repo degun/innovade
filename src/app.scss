@@ -1,6 +1,15 @@
 /* INITIALIZERS + DEFAULTS
  * ============================== */
 @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,700");
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,500;0,700;1,400&display=swap');
+
+@font-face {
+  font-family: "Microsoft Tai Le";
+  src: local("Microsoft Tai Le"), local("Microsoft-Tai-Le"),
+    url("./fonts/taile.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
 
 @font-face {
   font-family: "ATOsmose-Light";

@@ -17,6 +17,7 @@ nav {
     display: inline-flex;
     position: fixed;
     background-color: #000;
+    z-index: 10;
   }
   
   ul li {
@@ -131,7 +132,7 @@ nav {
     background-color: black !important;
     background: linear-gradient(0deg, rgba(0, 0, 0, 0), rgba(221, 221, 221, 0.1)), url("../../../photos/Group\ 55.png") center no-repeat;
     background-size: 100% 100%, auto 50%;
-    background-position-x: 53%;
+    background-position-x: 54%;
     color: #fff;
     .smoke{
       position: absolute;
@@ -139,6 +140,7 @@ nav {
       height: 100%;
       background-image: url("../../../photos/smoke2x.png");
       background-size: cover;
+      background-position-x: center;
     }
   }
   
@@ -174,6 +176,7 @@ nav {
     padding-right: 35px;
     font-size: 14px;
     width: 200px;
+    text-align: right;
   }
   .Angle__wrapper {
     display: block;
@@ -264,14 +267,9 @@ nav {
       letter-spacing: 38px;
     }
   }
+
   
-  @media only screen and (max-width: 800px) {
-    .Title {
-      letter-spacing: 38px;
-    }
-  }
-  
-  @media only screen and (max-width: 768px) {
+  @media only screen and (max-width: 1100px) {
     .Model__X {
       font-size: 2rem;
       font-family: "ATOsmose-Regular";
@@ -282,25 +280,14 @@ nav {
       justify-content: flex-start !important;
     }
     .reverse {
-      display: -ms-flexbox;
-      display: -webkit-flex;
-      display: flex;
-      -webkit-flex-direction: column-reverse;
-      -ms-flex-direction: column-reverse;
-      flex-direction: column-reverse;
-      -webkit-flex-wrap: nowrap;
-      -ms-flex-wrap: nowrap;
-      flex-wrap: nowrap;
-      -webkit-justify-content: flex-start;
-      -ms-flex-pack: start;
-      justify-content: flex-start;
-      -webkit-align-content: stretch;
-      -ms-flex-line-pack: stretch;
-      align-content: stretch;
-      -webkit-align-items: flex-start;
-      -ms-flex-align: start;
-      align-items: flex-start;
+      height: 100%;
       width: 100%;
+      display: flex;
+      flex-direction: column-reverse;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 100px 0 0 0;
     }
     .Header__wrapper {
       height: 80px !important;
@@ -335,21 +322,26 @@ nav {
       width: 100%;
       text-align: center;
     }
+
+    .Title {
+      letter-spacing: 0.6rem;
+    }
   
 
     .Model__name {
       padding-right: 0px !important;
-      padding-top: 100px !important;
+      padding-top: 0px !important;
       text-align: center !important;
       margin: auto;
       display: flex;
       justify-content: center;
       align-items: center;
+      min-height: 2.2rem;
     }
     .Model__content {
       vertical-align: middle;
       width: 100% !important;
-      padding: 100px 160px 0px 160px !important;
+      padding: 0 !important;
       text-align: center !important;
     }
   
@@ -361,28 +353,28 @@ nav {
     }
   
     .Title {
-      letter-spacing: 50px !important;
-      font-size: 1rem !important;
-      padding-top: 170px !important;
-      width: 100% !important;
-      justify-content: center !important;
-      padding-left: 50px !important;
-      align-content: center !important;
-      text-align: center !important;
+      letter-spacing: 2rem;
+      font-size: 1rem;
+      padding-top: 0px;
+      width: 100%;
+      justify-content: center;
+      padding-left: 50px;
+      align-content: center;
+      text-align: center;
     }
   
     .Our__story {
       background-color: black !important;
       background: linear-gradient(0deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1)), url("../../../photos/Group\ 55.png") center no-repeat;
       background-size: auto 35%;
-      background-position: 61% 45%;
+      background-position: 52% 45%;
       color: #fff;
       background-clip: content-box;
       height: 800px;
     }
 
     .text-transition{
-      margin-left: -20px;
+      margin: 0 auto;
     }
 
     .Angle__wrapper{
@@ -405,19 +397,6 @@ nav {
       text-align: center !important;
       padding-bottom: 30px;
       width: 100%;
-    }
-  
-    .Ham__wrapper {
-      color: white;
-      display: block;
-      position: absolute;
-      top: 0;
-      right: 0;
-      transform: translate(-100%, 60%);
-      font-size: 1.8rem;
-      cursor: pointer;
-      background-color: black;
-      margin-top: 5px;
     }
   
     .Logo__wrapper {
@@ -454,6 +433,21 @@ nav {
       font-size: 18px;
     }
   }
+
+  @media only screen and (max-width: 770px){
+    .Ham__wrapper {
+      color: white;
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 0;
+      transform: translate(-100%, 60%);
+      font-size: 1.8rem;
+      cursor: pointer;
+      background-color: black;
+      margin-top: 5px;
+    }
+  }
   
   @media only screen and (max-width: 480px) {
     .Model__content {
@@ -468,12 +462,29 @@ nav {
       overflow: hidden;
       text-align: center !important;
     }
+    .Model__content{
+      padding-left: 5px;
+      padding-right: 5px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .Our__story{
+      background-position: 68% 45%;
+    }
+    .Model__X {
+      .text-transition{
+        font-size: 1.8rem;
+      }
+    }
   }
   
   @media only screen and (max-width: 375px) {
     .Title {
       letter-spacing: 25px !important;
-      padding-left: 25px !important;
+      // padding-left: 25px !important;
       justify-content: center;
       margin: auto;
       overflow: hidden;

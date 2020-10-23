@@ -11,8 +11,10 @@ const SingleProduct = ({match, addItem}) => {
   const {handle: h} = match.params;
   const [handle, setHandle] = useState(h);
   const {data} = useQuery(getProduct, {variables: {handle}});
-  const {title: name, description} = data?.productByHandle ?? {};
-  const variants = data?.productByHandle?.variants?.edges?.map(({node}) => {
+  const {title: name, description, images} = data?.productByHandle ?? {};
+  const v = data?.productByHandle?.variants?.edges ?? [];
+  console.log(data)
+  const variants = v.map(({node}) => {
     const {id, title, price, image} = node;
     return {
       id,
@@ -28,18 +30,20 @@ const SingleProduct = ({match, addItem}) => {
   useEffect(() => {
     setHandle(h);
     window.scrollTo(0,0)
-  }, [h])
+  }, [h]);
+
+  const imgs = images?.edges?.map(({node}) => node.transformedSrc) ?? [];
 
   return (
     <React.Fragment>
       <main id="Single-product">
         <ul id="Description-photos">
-        {variants.map(({image}, i) => <li key={`variant-${i}`}>
-          <img onClick={() => setSelected(i)} src={image} />
+        {imgs.map((src, i) => <li key={`variant-${i}`}>
+          <img onClick={() => setSelected(i)} src={src} />
         </li>)}
         </ul>
         <div className="Scroll-wrapper">
-          <Carousel images={variants.map(({image}) => image)} />
+          <Carousel images={imgs} />
         </div>
         <div className="Details-description">
           <div className="Model-name">{name}</div>

@@ -36,6 +36,13 @@ export const getProduct = gql`
             name
             values
         }
+        images(first: 10){
+            edges{
+                node{
+                    transformedSrc
+                }
+            }
+        }
         handle
         variants(first: 10) {
             edges {
@@ -43,11 +50,11 @@ export const getProduct = gql`
                 id
                 title
                 selectedOptions {
-                name
-                value
+                    name
+                    value
                 }
                 image {
-                src
+                    src
                 }
                 price
             }

@@ -11,15 +11,14 @@ const Accessories = () => {
         </div>
         <div className="Unique_product">
             <Tridi 
-                location={`./3d`} 
+                location="./4d"
                 format="png" 
                 count="180" 
                 draggable
-                dragInterval={10}
                 autoplay
                 stopAutoplayOnMouseEnter
                 resumeAutoplayOnMouseLeave
-                autoplaySpeed={150}
+                autoplaySpeed={140}
             />
         </div>
         <div className="Unique_description">

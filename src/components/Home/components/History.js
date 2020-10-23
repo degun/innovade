@@ -12,31 +12,28 @@ const History = (props) => {
               INNOVADE IS A CONTEMPORARY SHISHA EXPERIRENCE.
             </div>
             <div className="Exp__desc">
-              Lorem ipsum is placeholder text commonly used in the graphic,
-              print, and publishing industries for previewing layouts and visual
-              mockups.
-              <br />
-              <br />
-              Lorem ipsum is placeholder text commonly used in the graphic,
-              print, and publishing industries for previewing layouts and visual
-              mockups.
+            Innovade is more than just a product - its a whole new experience for shisha enthusiasts. Our goal is about redefining the meaning of smoking shisha into an extraordinary moment. <br /><br /> Each moment spent smoking with Innovade shisha, is a moment of stress released and a kind of escape. We value people's time, their needs and feelings, so we produced an outstanding product that ensures an amazing time, everytime.
             </div>
 
             <div className="Explore__link">
-              <Link to="/experience" style={{ color: "#8b8b8b" }}>
+              <Link to="/shop">
                 explore
               </Link>
             </div>
           </div>
         </div>
-        <Link to="/philosophy" className="Philosophy">
-          <div className="History__text">
-            history
+        <div className="Philosophy">
+          <div className="handp">
+            <div className="history">history</div>
+            <div className="and">&amp;</div>
+            <div className="philosophy">philosophy</div>
           </div>
-
-          <div className="And__prop">&#38;</div>
-          <div className="Philosophy__text">philosophy</div>
-        </Link>
+          <div className="invade">
+            <h1 className="title">innovade</h1>
+            <div className="pronunciation">[<strong>in</strong>-<em>uh</em>-veyd]</div>
+            <p className="meaning"><em>verb</em>, <strong>in&middot;no&middot;va&middot;de,</strong><br />a combination of the word innovate and invade.</p>
+          </div>
+        </div>
       </div>
     </React.Fragment>
   );

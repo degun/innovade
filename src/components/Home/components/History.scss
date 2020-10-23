@@ -2,11 +2,21 @@
 /* HISTORY
  * ============================== */
 
+ .History__wrapper {
+    display: flex;
+    flex-direction: row;
+    height: 600px;
+  }
+
  .Exp__wrapper {
+    box-sizing: border-box;
     background-color: #222222;
     width: 50%;
-    height: auto;
-    padding-top: 100px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     padding-left: 60px;
     padding-right: 125px;
     padding-bottom: 85px;
@@ -70,59 +80,109 @@
   }
   
   .Philosophy {
+    box-sizing: border-box;
+    position: relative;
     width: 50%;
-    height: auto;
+    height: 100%;
     background-image: url("../../../photos/history.png");
     box-shadow: inset 1000px 1000px 1000px rgba(199, 198, 198, 0.8);
-    background-size: 70% 80%;
+    background-size: contain;
     background-position: center bottom;
     background-repeat: no-repeat;
     padding: 50px 0px 50px 60px;
+    .handp{
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      .history, .philosophy{
+        font-size: 6rem;
+        color: white;
+        line-height: 1;
+        font-family: "ATOsmose-Light";
+        font-style: normal;
+      }
+      .and{
+        color: #ffd527;
+        font-size: 28rem;
+        line-height: 0.8;
+        opacity: 0.4;
+        font-family: "Microsoft Tai Le";
+        font-weight: 300;
+        font-style: normal;
+        align-self: flex-end;
+        margin-bottom: -4rem;
+      }
+    }
+    .invade{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 150px;
+      color: #333;
+      z-index: 1;
+      h1.title{
+        font-size: 5rem;
+        margin-bottom: 0;
+        margin-top: 0;
+        font-family: 'EB Garamond', serif;
+        font-weight: 700;
+        line-height: 1;
+      }
+      .pronunciation{
+        font-family: 'EB Garamond', serif;
+        font-size: 1.3rem;
+        strong{
+          font-weight: 700;
+        }
+        em{
+          font-style: italic;
+        }
+      }
+      p.meaning{
+        font-family: 'EB Garamond', serif;
+        font-weight: 500;
+        font-size: 2rem;
+      }
+    }
   }
-  
-  .History__wrapper {
-    width: 100%;
-    display: inline-flex;
+
+  @media only screen and (max-width: 1200px) {
+    .Philosophy{
+      .handp{
+        .history, .philosophy{
+          font-size: 4rem;
+        }
+        .and{
+          line-height: 1;
+          font-size: 24rem;
+        }
+      }
+      .invade{
+        padding: 100px;
+      }
+    }
   }
-  
-  .And__prop {
-    color: #ffd527;
-    font-size: 24rem;
-    text-align: right;
-    line-height: 0.75;
-    opacity: 0.65;
-    z-index: -1;
-    font-family: "WorkSans-Regular";
-    font-weight: 300;
-    font-style: normal;
-  }
-  
-  .Philosophy__text {
-    font-size: 5.5rem;
-    color: white;
-    z-index: 0;
-    line-height: 0.6;
-    opacity: 1;
-    position: relative;
-    font-family: "ATOsmose-Light";
-    font-weight: 300;
-    font-style: normal;
-    padding-bottom: 18px;
-  }
-  
-  .History__text {
-    font-size: 5.5rem;
-    color: white;
-    z-index: 0;
-    opacity: 1;
-    position: relative;
-    line-height: 0.6;
-    font-family: "ATOsmose-Light";
-    font-weight: 300;
-    font-style: normal;
-  }
-  
+
   @media only screen and (max-width: 992px) {
+    .Philosophy{
+      .invade{
+        padding: 80px;
+        h1.title{
+          font-size: 4rem;
+        }
+        p.meaning{
+          font-size: 1.8rem;
+        }
+      }
+    }
+
     .Exp__desc {
       padding-left: 70px !important;
       padding-top: 50px !important;
@@ -157,29 +217,17 @@
   }
   
   @media only screen and (max-width: 800px) {
+
+    .History__wrapper {
+      justify-content: center;
+      flex-direction: column;
+      height: auto;
+    }
+
     .Exp__title {
       font-size: 1.5rem;
     }
-  
-    .History__text,
-    .Philosophy__text {
-      font-size: 3.5rem;
-    }
-  
-    .Philosophy__text {
-      padding-top: 0;
-    }
-  
-    .Philosophy {
-      padding: 50px 0px 50px 35px;
-    }
-  
-    .Explore__link {
-      padding: 20px 0px 0px 70px !important;
-    }
-  }
-  
-  @media only screen and (max-width: 600px) {
+
     .Philosophy {
       width: 100%;
       padding: 0;
@@ -189,21 +237,44 @@
       background-size: 100% 100%;
     }
   
-    .History__wrapper {
-      justify-content: center;
-      flex-direction: column;
-    }
-  
     .Exp__wrapper {
       background-color: #222222;
       width: 100%;
       height: auto;
+      position: relative;
       padding-top: 50px;
       padding-left: 10px;
       padding-right: 25px;
       padding-bottom: 60px;
     }
   
+    .Explore__link {
+      padding: 20px 0px 0px 70px !important;
+    }
+  }
+  
+  @media only screen and (max-width: 600px) {
+
+    .Philosophy{
+      .handp{
+        .history, .philosophy{
+          font-size: 3rem;
+        }
+      }
+      .invade{
+        padding: 60px;
+        h1.title{
+          font-size: 3rem;
+        }
+        .pronunciation{
+          font-size: 1.3rem;
+        }
+        p.meaning{
+          font-size: 1.3rem;
+        }
+      }
+    }
+
     .Exp__title {
       font-size: 1.6rem;
     }
@@ -217,19 +288,6 @@
     .Explore__link {
       padding: 20px 0px 0px 65px;
       color: #8b8b8b;
-    }
-  
-    .And__prop {
-      font-size: 20rem;
-      padding-bottom: 70px;
-    }
-  
-    .History__text {
-      font-size: 3.5rem;
-    }
-  
-    .Philosophy__text {
-      font-size: 3.5rem;
     }
   }
 
