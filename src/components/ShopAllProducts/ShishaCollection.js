@@ -18,10 +18,10 @@ const breadcrumbNameMap = {
   "/accessories": "Accessories",
   "/accessories/accessories1": "First Accessory",
   "/case": "Case Color",
-  "/case/casecolor1": "Black",
+  "/case/casecolor1": "Pink",
   "/color": "Color",
   "/color/color1": "Silver",
-  "/color/color2": "SiGoldlver",
+  "/color/color2": "Gold",
 };
 
 function ListItemLink(props) {

@@ -434,6 +434,7 @@ article.article {
   flex-direction: row;
   display: inline-flex;
   border-bottom: 1px solid white;
+  padding-bottom: 20px;
 }
 .CReview-title {
   padding-right: 70px;
@@ -468,6 +469,9 @@ article.article {
   }
 }
 @media only screen and (max-width: 480px) {
+ .Review-section{
+  padding: 30px 20px 60px 20px!important;
+ }
   .review-alignment {
     display: block;
     flex-direction: column;
@@ -477,6 +481,9 @@ article.article {
     height: 190%;
     padding: 40px 0px;
   }
+  .Customer-review {
+    margin-bottom: 20px !important;
+}
 }
 @media only screen and (max-width: 384px) {
   .CReview-title {
@@ -486,7 +493,10 @@ article.article {
     padding-left: 25px !important;
   }
   .Review-section {
-    padding: 20px !important;
+    padding: 30px 20px  60px 20px!important;
+  }
+  .Review-wrapper{
+    font-size: 13px !important;
   }
 }
 //OFFER

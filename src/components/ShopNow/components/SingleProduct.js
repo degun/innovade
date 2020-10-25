@@ -13,7 +13,6 @@ const SingleProduct = ({match, addItem}) => {
   const {data} = useQuery(getProduct, {variables: {handle}});
   const {title: name, description, images} = data?.productByHandle ?? {};
   const v = data?.productByHandle?.variants?.edges ?? [];
-  console.log(data)
   const variants = v.map(({node}) => {
     const {id, title, price, image} = node;
     return {

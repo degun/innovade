@@ -25,6 +25,8 @@ import Experience from "./components/Experience";
 import HistoryPhilosophy from "./components/HistoryPhilosophy";
 import ShopAllProducts from "./components/ShopAllProducts/ShopAllProcucts";
 import ShopNow from "./components/ShopNow/ShopNow";
+import News from '././components/News/News';
+import Article from './components/News/SingleArticle/Article'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./app.scss";
@@ -61,6 +63,7 @@ class App extends Component {
           checkout: res.data.checkoutCreate.checkout,
         });
       });
+
   }
 
   static propTypes = {
@@ -142,6 +145,8 @@ class App extends Component {
           />
           <Route exact path="/about" render={() => <About />} />
           <Route exact path="/experience" render={() => <Experience />} />
+          <Route exact path="/news" render={() => <News />} />
+          <Route exact path="/news/:id/" render={(props) => <Article {...props} />} />
           <Route exact path="/shop" render={() => <ShopAllProducts models={models} />} />
           <Route exact path="/products/:handle" render={() => <ShopNow openCart={this.handleCartOpen} addItem={this.addVariantToCart} />} />
           <Route

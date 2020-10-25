@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from 'axios';
 import moment from 'moment';
+import {Link} from 'react-router-dom'
 import { WORDPRESS_HOST } from '../../../config';
 import './ProductDescription.scss';
 
@@ -43,13 +44,13 @@ const ProductDescription = () => {
         </div>
       </div>
       <div className="Details__wrapper">
-        <div className="News__wrapper">
+        <div className="News___wrapper">
         <div className="News__title">NEWS</div>
-        {posts.map(({id, title, date, link}) => <a href={link} key={id} className="News__item">
+        {posts.map(({id, title, date, link}) => <Link to={`/news/${id}`} key={id} className="News__item">
           <div className="news">{title}</div>
           <div className="date">{date}</div>
-        </a>)}
-        <div className="News__link"><a  className="News__link" href={WORDPRESS_HOST}>see all</a></div>
+        </Link>)}
+        <div className="News__link"><Link  className="News__link" to="/news">see all</Link></div>
         </div>
       </div>
     </div>
