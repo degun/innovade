@@ -1,39 +1,3 @@
-@import './../../../app.scss';
-
-
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
-}
-
-html {
-  -webkit-font-smoothing: antialiased;
-  scroll-behavior: smooth;
-  width: 100%;
-  height: 100%;
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  font-weight: 400;
-}
-
-html,
-body,
-.App {
-  margin: 0 auto;
-  padding: 0;
-  width: 100%;
-  background-color: #fff;
-  overflow-x: hidden;
-  min-width: 320px;
-  max-width: 1920px;
-
-  scroll-behavior: smooth;
-}
 .News__screen {
   text-align: center;
   padding-top: 170px;
@@ -80,11 +44,19 @@ body,
   padding-bottom: 10px;
 }
 .News_text {
-  font-size: 12px;
+  font-size: 1rem;
   color: #868686;
   font-family: 'WorkSans-Regular';
   text-align: left;
   margin-bottom: 20%;
+  .wp-block-image{
+    margin: 0;
+    img{
+      width: 100%;
+      height: auto;
+    }
+  }
+  
 }
 
 @media only screen and (max-width: 992px) {

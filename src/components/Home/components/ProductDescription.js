@@ -46,7 +46,7 @@ const ProductDescription = () => {
       <div className="Details__wrapper">
         <div className="News___wrapper">
         <div className="News__title">NEWS</div>
-        {posts.map(({id, title, date, link}) => <Link to={`/news/${id}`} key={id} className="News__item">
+        {posts.map(({id, title, date}) => <Link to={`/news/${id}`} key={id} className="News__item">
           <div className="news">{title}</div>
           <div className="date">{date}</div>
         </Link>)}
