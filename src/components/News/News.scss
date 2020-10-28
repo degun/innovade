@@ -33,16 +33,15 @@
     width:calc(100%/3);
     height:auto;
     border-bottom: 1px solid #9B9B9B;
-    &:nth-last-child(1){
-        border-bottom: none;
-    }
     &:nth-child(3n-2){
         .Single-news{
+            width: calc(100% - 15px);
             padding-left: 0;
         }
     }
     &:nth-child(3n){
         .Single-news{
+            width: calc(100% - 15px);
             padding-right: 0;
         }
     }
@@ -83,10 +82,10 @@
 }
 .News-title{
     font-size: 21px;
-    padding-right:75px;
+    padding-right:0px;
     font-family: 'WorkSans-Regular';
     text-transform: uppercase;
-    height: 120px;
+    height: 100px;
 }
 .More-news{
     flex-direction: row;

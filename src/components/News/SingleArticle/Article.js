@@ -3,11 +3,11 @@ import { withRouter } from 'react-router-dom';
 import { WORDPRESS_HOST } from '../../../config';
 import axios from 'axios';
 import moment from 'moment';
+import Loader from 'react-fullpage-custom-loader';
 import './Article.scss';
 
 const Article = ({match}) => {
   const {id} = match.params;
-  console.log(id)
   const [post, setPost] = useState({});
   const [called, setCalled] = useState(false);
   if (!called) {
@@ -34,8 +34,11 @@ const Article = ({match}) => {
         setCalled(true);
       });
     }
-    console.log(post)
-    return  <div className="News__screen">
+
+    if(!called)
+    return <Loader color="#56bad9" fadeIn={true} wrapperBackgroundColor="#000" sentences={[]} loaderType="ball-grid-pulse" />
+    
+    return <div className="News__screen">
           <div className="News__wrapper">
             <div className="News_photo">
               <img

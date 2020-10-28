@@ -9,14 +9,13 @@ const ProductDescription = () => {
   const [posts, setPosts] = useState([]);
   const [called, setCalled] = useState(false);
   if(!called){
-    axios.get(`${WORDPRESS_HOST}/wp-json/wp/v2/posts?_fields=title,date,id,link`)
+    axios.get(`${WORDPRESS_HOST}/wp-json/wp/v2/posts?_fields=title,date,id&per_page=7`)
     .then(({data}) => {
-      setPosts(data.map(({id, title, date, link}) => {
+      setPosts(data.map(({id, title, date}) => {
         return {
           id,
           title: title.rendered,
-          date: moment(date).format("DD.MM.YYYY"),
-          link
+          date: moment(date).format("DD.MM.YYYY")
         }
       }));
       setCalled(true);

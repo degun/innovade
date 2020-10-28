@@ -8,11 +8,13 @@ import SingleNews from "./SingleNews";
 const News = () => {
   const [posts, setPosts] = useState([]);
   const [called, setCalled] = useState(false);
-
+  const [perPage, setPerPage] = useState(9);
+  const [total, setTotal] = useState(0);
   if (!called) {
     axios
-      .get(`${WORDPRESS_HOST}/wp-json/wp/v2/posts?_fields=title,date,id,featured_media`)
-      .then(async ({ data }) => {
+      .get(`${WORDPRESS_HOST}/wp-json/wp/v2/posts?_fields=title,date,id,featured_media&per_page=${perPage}`)
+      .then(async ({ data, headers }) => {
+        setTotal(headers['x-wp-total']);
         const posts = await Promise.all(data.map(async ({ id, title, date, featured_media }) => {
           let image = "";
           return await axios
@@ -34,6 +36,10 @@ const News = () => {
         setCalled(true);
       });
   }
+
+  const tailLength = posts.length % 3 || 3;
+  console.log(tailLength)
+
   return (
     <React.Fragment>
       <div className="News-wrapper">
@@ -45,12 +51,15 @@ const News = () => {
         </div>
         <div className="container">
           <div className="row">
-            {posts.map(post => <SingleNews {...post} />)}
+            {posts.map((post, i) => <SingleNews {...post} last={(posts.length - i - 1) < tailLength} />)}
           </div>
           <div className="see-more">
-            <a href="#">
+            {total > perPage ? <a onClick={() => {
+              setPerPage(perPage + 9);
+              setCalled(false);
+            }} href="#">
               <span className="see_more">see more...</span>
-            </a>
+            </a> : null}
           </div>
         </div>
       </div>

@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import Modal from 'react-modal';
 import TextField from '@material-ui/core/TextField';
 import Snackbar from '@material-ui/core/Snackbar';
-// import Alert from '@material-ui/core/Alert';
+import Alert from '@material-ui/lab/Alert';
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import { WORDPRESS_HOST } from '../../config';
 import axios from 'axios';
@@ -92,9 +92,10 @@ function ContactForm({isOpen, closeModal}){
             anchorOrigin={{ vertical:'bottom', horizontal:'center' }}
             open={sent}
             onClose={() => setSent(false)}
-            message="Thank you for contacting us"
             key='snak'
-          />
+          >
+            <Alert severity="success">Thank you for contacting us!</Alert>
+          </Snackbar>
         </Modal>
     )
 }

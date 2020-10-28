@@ -42,6 +42,18 @@
     width: 88%;
     padding: 60px 0px 0 125px;
     align-content: center;
+    .Button_wrapper {
+      margin-top: 30px;
+      .Button{
+        background-color: #222;
+      }
+    }
+    .MuiTextField-root{
+      margin-top: 20px;
+      input{
+      font-size: 1rem;
+      }
+    }
   }
   
   .footer_text {

@@ -1,17 +1,10 @@
 import React from "react";
 import "./Accordation.scss";
 
-const paragraph =
-  "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet natus sint provident vel ab reprehenderit cum soluta, suscipit facere nisi sed earum repellendus fuga debitis, nam molestiae minima voluptates possimus.";
-
 const data = [
   {
-    title: "PRODUCT DESCRIPTION",
-    paragraph,
-  },
-  {
     title: "SHIPPING SPEC",
-    paragraph,
+    paragraph: "Shipping worldwide."
   },
 ];
 

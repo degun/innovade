@@ -26,7 +26,8 @@ import HistoryPhilosophy from "./components/HistoryPhilosophy";
 import ShopAllProducts from "./components/ShopAllProducts/ShopAllProcucts";
 import ShopNow from "./components/ShopNow/ShopNow";
 import News from '././components/News/News';
-import Article from './components/News/SingleArticle/Article'
+import Article from './components/News/SingleArticle/Article';
+import Loader from 'react-fullpage-custom-loader';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./app.scss";
@@ -102,7 +103,7 @@ class App extends Component {
 
   render() {
     if (this.props.data.loading) {
-      return <p>Loading ...</p>;
+      return <Loader color="#56bad9" fadeIn={true} wrapperBackgroundColor="#000" sentences={[]} loaderType="ball-grid-pulse" />
     }
     if (this.props.data.error) {
       return <p>{this.props.data.error.message}</p>;

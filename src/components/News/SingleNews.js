@@ -3,9 +3,9 @@ import {Link} from 'react-router-dom'
 
 import './News.scss'
 
-const SingleNews = ({id,title,date,image}) => {
+const SingleNews = ({id,title,date,image, last}) => {
     return (
-        <div className="SingleNews-wrapper">
+        <div className="SingleNews-wrapper" style={last ? {borderBottom: "none"} : {}}>
             <div className="Single-news">
                 <div className="News-title">
                     {title}

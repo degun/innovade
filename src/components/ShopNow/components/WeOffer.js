@@ -11,7 +11,7 @@ const WeOffer = (props) => {
         />
         <br />
         <p className="Shipping-title">SHIPPING WORLDWIDE</p>
-        <p className="Shipping-desc">Lorem ipsum is a placeholder</p>
+        <p className="Shipping-desc">We ship to all countries</p>
       </div>
       <div className="Shipping">
         <img
@@ -21,7 +21,7 @@ const WeOffer = (props) => {
         />
         <br />
         <p className="Shipping-title">REMARKABLE QUALITY</p>
-        <p className="Shipping-desc">Lorem ipsum is a placeholder</p>
+        <p className="Shipping-desc">Build quality nowhere else to be found</p>
       </div>
       <div className="Shipping">
         <img
@@ -31,7 +31,7 @@ const WeOffer = (props) => {
         />
         <br />
         <p className="Shipping-title">ONE YEAR WARRANTY</p>
-        <p className="Shipping-desc">Lorem ipsum is a placeholder</p>
+        <p className="Shipping-desc">Full covearage of any issues</p>
       </div>
     </div>
   );
