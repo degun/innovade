@@ -369,12 +369,14 @@ body,
 }
 
 article.article {
-  width: 40%;
-  font-family: "ATOsmose-Light";
+  width: 580px;
+  font-family: "WorkSans-Regular";
   line-height: 1.5;
-  font-weight: 100;
+  font-weight: lighter;
+  font-size: 1.3rem;
   h1 {
     color: #56bad9;
+    font-size: 2.3rem;
   }
 }
 
@@ -446,7 +448,13 @@ article.article {
 }
 .CReview-desc {
   padding-left: 90px;
+  width: calc(100% - 300px);
   letter-spacing: -1;
+  display: flex;
+  justify-content: space-between;
+  .product{
+    color: #777;
+  }
 }
 .review-alignment {
   display: inline-flex;

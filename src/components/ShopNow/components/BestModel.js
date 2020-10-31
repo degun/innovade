@@ -15,8 +15,7 @@ const BestModel = ({ title, description, image, price, handle, button }) => {
           />
         </div>
         <div className="Rate_wrapper">
-          <Rate />
-          <div style={{ paddingTop: 10, paddingLeft: 8 }}>6 Reviews</div>
+          <div style={{ paddingTop: 10, paddingLeft: 8 }}></div>
         </div>
         <div className="BestModel__title">{title}</div>
         <div className="BestModel__desc">

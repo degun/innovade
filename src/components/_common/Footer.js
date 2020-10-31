@@ -1,18 +1,21 @@
 import React, { useState } from "react";
+import axios from 'axios';
 import { Link } from "react-router-dom";
 import TextField from '@material-ui/core/TextField';
+import Snackbar from '@material-ui/core/Snackbar';
+import Alert from '@material-ui/lab/Alert';
 import Button from '../Button';
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import { useMutation } from 'react-apollo';
-import { createCustomer } from '../../graphql/mutations';
+import { WORDPRESS_HOST } from '../../config';
 import './Footer.scss';
 
 const Footer = ({ openContactForm }) => {
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [createCustomerMutation, createdCustomer] = useMutation(createCustomer);
+  const [name, setName] = useState("");
+  const [sent, setSent] = useState(false);
+  const [error, setError] = useState(false);
 
-  console.log(createdCustomer)
+  const newsletterLink = `${WORDPRESS_HOST}/wp-json/newsletter/v1/subscribe`;
   
   const darkTheme = createMuiTheme({
     palette: {
@@ -20,10 +23,25 @@ const Footer = ({ openContactForm }) => {
     },
   });
 
-  function customerCreate(){
-    createCustomerMutation({variables: {input: {email, password}}})
-    .then(res => console.log(res))
-    .catch(e => console.log(e))
+  function subscribe(){
+    axios.post(newsletterLink, {email, name}, {headers: {"Content-Type": "application/json"}})
+    .then(({status}) => {
+      if(status === 200){
+        setEmail("");
+        setName("");
+        setSent(true);
+        setTimeout(() => {
+          setSent(false)
+        }, 3000);
+      }
+    })
+    .catch(e => {
+      console.log(e);
+      setError(true)
+      setTimeout(() => {
+        setError(false)
+      }, 3000);
+    })
   }
 
   return (
@@ -52,18 +70,34 @@ const Footer = ({ openContactForm }) => {
       </div>
       <div className="footer__desc">
         <div className="footer_text">
-          Sign up for exclusive discounts, rewards,
+          Sign up to our newsletter,
           <span className="nobr">
             <br />
           </span>
-          invitations and the chance to test new.
+          to get our latest news.
           <br />
           <div className="subscribe">
             <ThemeProvider theme={darkTheme}>
               <TextField type="email" placeholder="Your email" value={email} onChange={({target}) => setEmail(target.value)} style={{marginRight: "10px"}} /> 
-              <TextField type="password" placeholder="Choose a password" onChange={({target}) => setPassword(target.value)} /> 
-              <Button onClick={customerCreate}>Sign up</Button>
+              <TextField type="name" placeholder="Your name" onChange={({target}) => setName(target.value)} /> 
+              <Button onClick={subscribe}>Sign up</Button>
             </ThemeProvider>
+            <Snackbar
+              anchorOrigin={{ vertical:'bottom', horizontal:'center' }}
+              open={sent}
+              onClose={() => setSent(false)}
+              key='snak'
+            >
+              <Alert severity="success">Thank you for subscribing! Stay tuned!</Alert>
+            </Snackbar>
+            <Snackbar
+              anchorOrigin={{ vertical:'bottom', horizontal:'center' }}
+              open={error}
+              onClose={() => setError(false)}
+              key='snak'
+            >
+              <Alert severity="error">There was an error during the subscription process.</Alert>
+            </Snackbar>
           </div> 
         </div>
       </div>

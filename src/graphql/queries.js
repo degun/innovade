@@ -19,6 +19,7 @@ export const getProducts = gql`
                 }
             }
         }
+        
         }
     }
     }
@@ -60,6 +61,7 @@ export const getProduct = gql`
             }
             }
         }
+        
     }
   }
 `

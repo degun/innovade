@@ -39,9 +39,10 @@
   .footer__desc {
     font-size: 1rem;
     color: white;
-    width: 88%;
-    padding: 60px 0px 0 125px;
+    width: calc(100% - 250px);
+    padding-top: 60px;
     align-content: center;
+    margin: 0 auto;
     .Button_wrapper {
       margin-top: 30px;
       .Button{

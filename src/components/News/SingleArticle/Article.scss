@@ -21,7 +21,7 @@
   border-bottom: 2px #000 solid;
   display: inline-flex;
   height: auto;
-  margin-bottom: 7%;
+  margin-bottom: 20px;
 }
 .Left_title {
   float: left;
@@ -54,6 +54,25 @@
     img{
       width: 100%;
       height: auto;
+    }
+    
+  }
+  .wp-block-group{
+    .wp-block-gallery{
+      ul.blocks-gallery-grid{
+        display: flex;
+        li.blocks-gallery-item{
+          flex-grow: 1;
+          figure{
+            margin: 10px;
+            img{
+              width: 100% !important;
+              border-radius: 0px !important;
+              height: 600px !important;
+            }
+          }
+        }
+      }
     }
   }
   

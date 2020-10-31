@@ -1,44 +1,19 @@
-import React, { useState, useEffect } from "react";
-import { withRouter } from "react-router-dom";
-import Carousel from "../../Carousel/Carousel";
+import React, { useState } from "react";
 import Rate from "./Rate";
 import Button from "../../Button";
 import Accordation from "./Accordation";
-import { useQuery } from "react-apollo";
-import { getProduct } from "../../../graphql/queries";
-import Loader from 'react-fullpage-custom-loader';
 import "./SingleProduct.scss";
 
-const SingleProduct = ({ match, addItem }) => {
-  const { handle: h } = match.params;
-  const [handle, setHandle] = useState(h);
-  const { data, loading } = useQuery(getProduct, { variables: { handle } });
-  const { title: name, description, images } = data?.productByHandle ?? {};
-  const v = data?.productByHandle?.variants?.edges ?? [];
-  const variants =
-    v.map(({ node }) => {
-      const { id, title, price, image } = node;
-      return {
-        id,
-        title,
-        price,
-        image: image.src,
-      };
-    }) ?? [];
+const SingleProduct = ({ addItem, variants, data }) => {
+  
   const [selected, setSelected] = useState(0);
   const [selectedVariant, setSelectedVariant] = useState(0);
 
-  useEffect(() => {
-    setHandle(h);
-    window.scrollTo(0, 0);
-  }, [h]);
+  const { title: name, description, images } = data;
 
   const imgs = images?.edges?.map(({ node }) => node.transformedSrc) ?? [];
 
   const thisVariant = variants[selectedVariant] ?? {price: 0, title: "", id: undefined};
-
-  if(loading)
-  return <Loader color="#ffd527" fadeIn={true} wrapperBackgroundColor="#000" sentences={[]} loaderType="ball-grid-pulse" />
 
   return (
     <React.Fragment>
@@ -51,16 +26,15 @@ const SingleProduct = ({ match, addItem }) => {
           )}
         </ul>
         <div className="Scroll-wrapper">
-          <i class="fa fa-angle-left" onClick={() => setSelected(selected === 0 ? (imgs.length - 1) : (selected - 1))} id="left"></i>
+          <i class="fa fa-angle-left left-arrow" onClick={() => setSelected(selected === 0 ? (imgs.length - 1) : (selected - 1))}></i>
           <img src={imgs[selected]} alt="product description" />
-          <i class="fa fa-angle-right" onClick={() => setSelected(selected === (imgs.length - 1) ? 0 : (selected + 1))} id="right"></i>
+          <i class="fa fa-angle-right right-arrow" onClick={() => setSelected(selected === (imgs.length - 1) ? 0 : (selected + 1))}></i>
         </div>
         <div className="Details-description">
           <div className="Model-name">{name}</div>
           <div className="BestModel__desc">{description}</div>
           <div className="Rate_wrapper">
-            <Rate />
-            <div style={{ paddingTop: 10, paddingLeft: 8 }}>6 Reviews</div>
+            <div style={{ paddingTop: 10, paddingLeft: 8 }}></div>
           </div>
           <div className="Model__price">
             {Intl.NumberFormat("it-IT", {
@@ -92,4 +66,4 @@ const SingleProduct = ({ match, addItem }) => {
   );
 };
 
-export default withRouter(SingleProduct);
+export default SingleProduct;

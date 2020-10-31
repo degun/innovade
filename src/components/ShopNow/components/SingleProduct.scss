@@ -55,18 +55,16 @@ ul#colors li img{
   align-items: center;
   padding-left: 70px;
   img{
-    width: 60%;
+    width: 80%;
     height: 500px;
     object-fit: cover;
     margin: 0 auto;
   }
-
-  #left{
+  .left-arrow, .right-arrow{
     color: #838383;
-    font-size: 2rem;
-  }
-  #right{
-    color: #838383;
-    font-size: 2rem;
+    font-size: 1.3rem;
+    &:hover{
+      cursor: pointer;
+    }
   }
 }
