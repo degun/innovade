@@ -185,6 +185,7 @@ nav {
   }
   .Model__content {
     vertical-align: middle;
+    padding-top: 103px;
     width: auto;
     padding-left: 60px;
     font-family: "ATSurt-Light";
@@ -211,7 +212,7 @@ nav {
   }
   
   .Model__X {
-    font-size: 2.4rem;
+    font-size: 2rem;
     font-family: "ATOsmose-Regular";
     font-weight: 400;
     font-style: normal;
@@ -261,7 +262,7 @@ nav {
       width: 40% !important;
     }
     .Slider__wrapper {
-      padding-left: 8px !important;
+      padding-left: 0px !important;
     }
     .Title {
       letter-spacing: 38px;
@@ -401,7 +402,7 @@ nav {
   
     .Logo__wrapper {
       width: 50%;
-      padding: 33px 0px 0px 30px;
+      padding: 35px 0px 0px 30px;
     }
   
     .List__item {
@@ -441,22 +442,25 @@ nav {
       position: absolute;
       top: 0;
       right: 0;
-      transform: translate(-100%, 60%);
+      transform: translate(-142%, 60%);
       font-size: 1.8rem;
       cursor: pointer;
       background-color: black;
       margin-top: 5px;
+    }
+    .Title {
+      padding-left: 20px !important;
     }
   }
   
   @media only screen and (max-width: 480px) {
     .Model__content {
       width: 100% !important;
-      padding: 100px 70px 0px 70px !important;
+      padding: 35px 70px 0px 70px !important;
     }
     .Title {
       letter-spacing: 35px !important;
-      padding-left: 15px !important;
+      padding-left: 32px !important;
       justify-content: center;
       margin: auto;
       overflow: hidden;
@@ -472,7 +476,7 @@ nav {
       align-items: center;
     }
     .Our__story{
-      background-position: 68% 45%;
+      background-position: 57% 45%;
     }
     .Model__X {
       .text-transition{
@@ -481,17 +485,17 @@ nav {
     }
   }
   
-  @media only screen and (max-width: 375px) {
+  @media only screen and (max-width: 384px) {
     .Title {
       letter-spacing: 25px !important;
-      // padding-left: 25px !important;
+       padding-left: 28px !important;
       justify-content: center;
       margin: auto;
       overflow: hidden;
       text-align: center !important;
     }
     .Model__content {
-      padding: 100px 30px 0px 30px !important;
+      padding: 35px 30px 0px 30px !important;
       width: 100% !important;
     }
   }

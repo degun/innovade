@@ -48,11 +48,13 @@ const Footer = ({ openContactForm }) => {
     <div className="footer_wrapper">
       <div className="footer_items">
         <div className="footer_logo">
+          <Link to="/">
           <img
             className="Logo__bottom"
             src={require("../../photos/logo.png")}
             alt="INNOVADE LOGO"
           />
+          </Link>
         </div>
         <div className="footer_link">
           <ul className="list__wrapper">

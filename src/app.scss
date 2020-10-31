@@ -242,7 +242,7 @@ body,
   margin-bottom: 20px;
   overflow: hidden;
   backface-visibility: visible;
-  min-height: 65px;
+  min-height: 75px;
   position: relative;
   opacity: 1;
   transition: opacity 0.2s ease-in-out;
@@ -460,11 +460,36 @@ article.article {
   display: inline-flex;
   flex-direction: row;
 }
+@media only screen and (max-width: 1024px) {
+  .Review-section{
+    padding: 80px 75px 20px 75px;
+  }
+}
 @media only screen and (max-width: 800px) {
   .Review-section {
     padding: 80px 100px 20px 100px;
   }
-}
+  .Customer-review {
+    display: block;
+    .review-alignment, .CReview-desc {
+      width:100%;
+      padding: 0px !important;
+      display: inline-flex;
+      flex-direction: row;
+    }
+    .CReview-title {
+      width: 65%;
+      padding-right: 0px!important;
+    }
+    .CReview-desc .product {
+     text-align: center;
+  }
+  #Rate-wrapper{
+    width:30%;
+    margin:auto;
+    text-align: center;
+  }
+  }
 @media only screen and (max-width: 767px) {
   .review-alignment {
     display: inline-flex;
@@ -479,6 +504,8 @@ article.article {
   .CReview-title {
     padding-right: 30px;
   }
+}
+
 }
 @media only screen and (max-width: 480px) {
  .Review-section{

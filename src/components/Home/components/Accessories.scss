@@ -66,12 +66,34 @@
       height: 500px;
     }
   }
-  @media only screen and (max-width: 400px) {
-    .Unique__title {
+  @media only screen and (max-width: 600px) {
+    .Accessories__wrapper .Unique__title{
+      font-size: 6rem;
+    }
+  }
+  @media only screen and (max-width: 480px) {
+    .Accessories__wrapper .Unique__title {
+      font-size: 4.5rem;
+    }
+    .Accessories__wrapper {
+      height: 480px;
+      background-size: cover;
+    }
+  }
+  @media only screen and (max-width: 395px) {
+    .Accessories__wrapper .Unique__title {
       font-size: 4rem;
     }
     .Accessories__wrapper {
       height: 480px;
       background-size: cover;
+      .Unique_description{
+        height: 90% !important;
+      }
+    }
+  }
+  @media only screen and (max-width: 320px) {
+    .Accessories__wrapper .Unique__title {
+      font-size: 3.5rem;
     }
   }
