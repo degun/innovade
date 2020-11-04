@@ -5,7 +5,7 @@ import CustomerReview from "./../ShopNow/components/CustomerReview";
 import WeOffer from "../ShopNow/components/WeOffer";
 import "./ShopAllProducts.scss";
 
-const ShopAllProducts = ({models}) => {
+const ShopAllProducts = ({models, setCollectionFilter, setTag}) => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -16,7 +16,7 @@ const ShopAllProducts = ({models}) => {
       </div>
       <div className="BestModel-wrapper">
         <aside id="ShishaCollection">
-          <ShishaCollection />
+          <ShishaCollection setCollectionFilter={setCollectionFilter} setTag={setTag} />
         </aside>
         <main id="AllModels">
           <AllModels models={models} />

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import BestModel from "../ShopNow/components/BestModel";
 
 

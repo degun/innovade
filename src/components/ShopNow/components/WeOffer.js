@@ -8,6 +8,7 @@ const WeOffer = (props) => {
           width="45px"
           height="45px"
           src={require("../../../photos/shipping.jpg")}
+          alt=""
         />
         <br />
         <p className="Shipping-title">SHIPPING WORLDWIDE</p>
@@ -18,6 +19,7 @@ const WeOffer = (props) => {
           width="45px"
           height="45px"
           src={require("../../../photos/quality.jpg")}
+          alt=""
         />
         <br />
         <p className="Shipping-title">REMARKABLE QUALITY</p>
@@ -28,6 +30,7 @@ const WeOffer = (props) => {
           width="45px"
           height="45px"
           src={require("../../../photos/warranty.jpg")}
+          alt=""
         />
         <br />
         <p className="Shipping-title">ONE YEAR WARRANTY</p>

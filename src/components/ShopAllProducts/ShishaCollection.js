@@ -1,6 +1,8 @@
 /* eslint-disable no-nested-ternary */
 import React from "react";
 import PropTypes from "prop-types";
+import { useQuery } from 'react-apollo';
+import { getCollectionsTags } from '../../graphql/queries';
 import { makeStyles } from "@material-ui/core/styles";
 import List from "@material-ui/core/List";
 import Link from "@material-ui/core/Link";
@@ -60,43 +62,22 @@ const useStyles = makeStyles((theme) => ({
 
 const LinkRouter = (props) => <Link {...props} component={RouterLink} />;
 
-export default function RouterBreadcrumbs() {
+export default function RouterBreadcrumbs({setCollectionFilter, setTag}) {
+  const { data } = useQuery(getCollectionsTags)
+  console.log(data)
   const classes = useStyles();
-  const [openColl, setOpenColl] = React.useState(false);
-  const [openAccss, setOpenAccss] = React.useState(false);
-  const [openCase, setOpenCase] = React.useState(false);
-  const [openColor, setOpenColor] = React.useState(false);
-
-  const handleClickAccessories = () => {
-    setOpenAccss((prevOpenA) => !prevOpenA);
-  };
-  const handleClickCase = () => {
-    setOpenCase((prevOpenB) => !prevOpenB);
-  };
-  const handleClickColors = () => {
-    setOpenColor((prevOpenC) => !prevOpenC);
-  };
-  const handleClickCollection = () => {
-    setOpenColl((prevOpenD) => !prevOpenD);
-  };
+  const [open, setOpen] = useState({
+    collections: false,
+    tags: false          
+  })
   return (
-    <MemoryRouter initialEntries={["/collection"]} initialIndex={0}>
       <div className={classes.root} id="dropdown-menu">
-        <Route>
-          {({ location }) => {
-            const pathnames = location.pathname.split("/").filter((x) => x);
-
-            return (
-              <div className="Shisha-wrapper">
-                <div className="Shisha-title">Shishas</div>
-                <div className="Shisha-text">
-                  Lorem ipsum dolor sit amet, consectetus adipiscing elit. Donec
-                  congue tincidunt leo eu maximus augu.
-                </div>
-              </div>
-            );
-          }}
-        </Route>
+        <div className="Shisha-wrapper">
+          <div className="Shisha-title">Shishas</div>
+          <div className="Shisha-text">
+            This is our collection of shishas. 
+          </div>
+        </div>
         <nav
           id="alignment-nav"
           className={classes.lists}
@@ -192,6 +173,5 @@ export default function RouterBreadcrumbs() {
           </List>
         </nav>
       </div>
-    </MemoryRouter>
   );
 }

@@ -59,17 +59,23 @@
   }
   .wp-block-group{
     .wp-block-gallery{
+      margin-left: 0;
+      margin-right: 0;
       ul.blocks-gallery-grid{
         display: flex;
         li.blocks-gallery-item{
           flex-grow: 1;
           figure{
-            margin: 10px;
+            margin: 0;
+            margin-right: 10px;
             img{
               width: 100% !important;
               border-radius: 0px !important;
-              height: 600px !important;
+              height: 350px !important;
             }
+          }
+          li:last-child figure{
+            margin-right: 0;
           }
         }
       }

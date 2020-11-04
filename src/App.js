@@ -42,6 +42,8 @@ class App extends Component {
       checkout: { lineItems: { edges: [] } },
       click: false,
       contact: false,
+      collectionFilter: undefined,
+      tag: undefined,
     };
 
     this.handleCartClose = this.handleCartClose.bind(this);
@@ -101,6 +103,14 @@ class App extends Component {
     this.setState({ contact: true, click: false });
   };
 
+  setCollectionFilter = filter => {
+    this.setState({ collectionFilter: filter });
+  }
+
+  setTag = tag => {
+    this.setState({ tag });
+  }
+
   render() {
     if (this.props.data.loading) {
       return <Loader color="#56bad9" fadeIn={true} wrapperBackgroundColor="#000" sentences={[]} loaderType="ball-grid-pulse" />
@@ -148,7 +158,7 @@ class App extends Component {
           <Route exact path="/experience" render={() => <Experience />} />
           <Route exact path="/news" render={() => <News />} />
           <Route exact path="/news/:id/" render={(props) => <Article {...props} />} />
-          <Route exact path="/shop" render={() => <ShopAllProducts models={models} />} />
+          <Route exact path="/shop" render={() => <ShopAllProducts models={models} setCollectionFilter={this.setCollectionFilter} setTag={this.setTag}  />} />
           <Route exact path="/products/:handle" render={() => <ShopNow openCart={this.handleCartOpen} addItem={this.addVariantToCart} />} />
           <Route
             exact
