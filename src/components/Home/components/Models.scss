@@ -1,5 +1,16 @@
+
 /* MODELS
  * ============================== */
+
+ @keyframes appear{
+  0%{
+    opacity: 0
+  }
+  100%{
+    opacity: 1
+  }
+}
+
 .Models__wrapper{
   background-color: #f2f2f2;
   .slick-active{
@@ -121,6 +132,8 @@
     justify-content: center;
     height: 100%;
     margin: 20px 40px;
+    opacity: 0;
+    animation: 0.2s appear cubic-bezier(0.215, 0.610, 0.355, 1) forwards;
   }
   .Model__price {
     color: #363636;

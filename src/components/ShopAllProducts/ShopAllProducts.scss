@@ -31,46 +31,57 @@
   vertical-align: center;
 }
 
-.MuiCollapse-wrapperInner {
-  ul li {
-    width:100%;
-  }
-}
+// .MuiCollapse-wrapperInner {
+//   ul li {
+//     width:100%;
+//   }
+// }
 
-.MuiPaper-root{
-  border: 1px solid #aaa;
-  font-family: "ATSurt-Light" !important;
-  outline: none;
-  box-shadow: none;
-  &:not(:last-child){
-    border-bottom: none !important;
-  }
-}
+// .MuiPaper-root{
+//   border: 1px solid #aaa;
+//   font-family: "ATSurt-Light" !important;
+//   outline: none;
+//   box-shadow: none;
+//   &:not(:last-child){
+//     border-bottom: none !important;
+//   }
+// }
 
-.MuiPaper-root.MuiAccordion-root.Mui-expanded.MuiAccordion-rounded.MuiPaper-elevation1.MuiPaper-rounded{
-  margin-top: 0;
-  margin-bottom: 0;
-}
+// .MuiPaper-root.MuiAccordion-root.Mui-expanded.MuiAccordion-rounded.MuiPaper-elevation1.MuiPaper-rounded{
+//   margin-top: 0;
+//   margin-bottom: 0;
+// }
 
-.MuiAccordionDetails-root{
-  padding: 0 !important;
-}
+// .MuiAccordionDetails-root{
+//   padding: 0 !important;
+// }
 
 .MuiButtonBase-root.MuiListItem-root.MuiListItem-gutters.MuiListItem-button{
   padding: 16px !important;
-  padding-left: 32px !important;
-  font-size: 0.8rem;
+  font-size: 1rem;
   font-family: "ATSurt-Light" !important;
   color: #666;
+  border: 1px solid #aaa;
   background-color: #fbfbfb;
+  border-bottom: none;
+  &:first-child{
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+  &:last-child{
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-bottom: 1px solid #aaa;
+  }
   &.selected{
-    color: #7E70C2;
+    color: mix(white, #333, 70);
+    background-color: #333;
   }
 }
 
 .MuiPaper-root, .MuiList-padding {
   flex-direction: column !important;
-  border-top: 1px solid #aaa !important;
+  // border-top: 1px solid #aaa !important;
   border-collapse: collapse !important;
   padding-top: 0px !important;
   padding-bottom: 0px !important;
@@ -135,6 +146,7 @@ nav {
   display: inline-flex;
   width: 100%;
   padding: 0 0 30px 0;
+  
 }
 
 #ShishaCollection {

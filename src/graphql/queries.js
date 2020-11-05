@@ -1,19 +1,14 @@
 import gql from "graphql-tag";
 
-export const getCollectionsTags = gql`
-    query getCollectionsTags{
-        collections(first: 10) {
+export const getCollections = gql`
+    query getCollections{
+        collections(first: 100) {
             edges {
                 node {
                     id
                     title
                     handle
                 }
-            }
-        }
-        productTags(first: 20){
-            edges{
-                node
             }
         }
     }

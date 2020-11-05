@@ -9,7 +9,7 @@ const CustomerReview = () => {
 
   const token = Buffer.from(`${STAMPED_USERNAME}:${STAMPED_PASSWORD}`, 'utf8').toString('base64');
 
-  axios.get(`${STAMPED_HOST}?productId=`, {headers: {
+  axios.get(`${STAMPED_HOST}`, {headers: {
     "Authorization": `Basic ${token}`
   }}).then(({data}) => {
     setReviews(data.results.map(({review}) => {

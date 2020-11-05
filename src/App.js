@@ -15,7 +15,7 @@ import {
   associateCustomerCheckout,
   addVariantToCart,
 } from "./graphql/checkout";
-import Cart from "./components/Cart";
+import Cart from "./components/Cart/Cart";
 import ContactForm from "./components/_common/ContactForm";
 import Home from "./components/Home/Home";
 import Footer from "./components/_common/Footer";
