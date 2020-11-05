@@ -23,7 +23,7 @@ const CustomerReview = () => {
     <div className="Review-section">
       <div className="Review-title">Customers reviews</div>
       <div id="Rate-wrapper">
-        <Rate />
+        <Rate rating={5} />
       </div>
       {reviews.map(({author, body, rating, title, productTitle}) => <div className="Review-wrapper">
         <div className="Customer-name">{author}</div>

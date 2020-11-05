@@ -19,9 +19,37 @@ export const getCollectionsTags = gql`
     }
 `;
 
+export const getProductsByCollection = gql`
+    query getProductsByCollection($handle: String!){
+        collectionByHandle(handle: $handle){
+            products(first: 100) {
+                edges {
+                    node {
+                    id
+                    title
+                    description
+                    priceRange{
+                        maxVariantPrice{amount} minVariantPrice{amount}
+                    }
+                    handle
+                    images(first: 10) {
+                        edges {
+                            node {
+                                src
+                            }
+                        }
+                    }
+                    
+                    }
+                }
+                }
+        }
+    }
+`;
+
 export const getProducts = gql`
-  query getProducts($first: Int) {
-    products(first: $first) {
+  query getProducts($first: Int $query: String) {
+    products(first: $first query: $query) {
     edges {
         node {
         id
