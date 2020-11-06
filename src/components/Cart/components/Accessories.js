@@ -1,5 +1,5 @@
 import React from 'react';
-import Product from './Product';
+import Produkt from './Produkt';
 import { useQuery } from 'react-apollo';
 import { getProductsByCollection } from '../../../graphql/queries';
 import Slider from "react-slick";
@@ -17,13 +17,14 @@ const settings = {
   };
 
 
-function Accessories () { 
+function Accessories ({addItem, closeCart}) { 
 
     const { data } = useQuery(getProductsByCollection, {variables: {handle: "feminine"}});
 
     const products = data?.collectionByHandle?.products?.edges?.map(({node}) => {
-        const {title, description, images, handle, priceRange} = node;
+        const {title, description, images, handle, priceRange, variants} = node;
         return {
+          id: variants.edges[0].node.id,
           title,
           handle,
           description,
@@ -32,12 +33,10 @@ function Accessories () {
         }
       }) ?? []
 
-    console.log(products, data)
-
     return(
         <div className="Accessories">
             <Slider {...settings} ref={(slider) => slider} arrows>
-                {products.map(product => <Product {...product} button />)}
+                {products.map(product => <Produkt addItem={addItem} closeCart={closeCart} {...product} button />)}
             </Slider>
         </div>
     )

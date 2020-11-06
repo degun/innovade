@@ -1,0 +1,32 @@
+.Produkt__wrapper{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .Produkt__photo img{
+        width: 80px;
+    }
+    .Produkt__title{
+        font-weight: bold;
+        text-align: center;
+        font-size: 0.8rem;
+    }
+    .Produkt__price{
+        font-size: 0.8rem;
+    }
+    .Produkt__buttons{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 70%;
+        .cart-link{
+            color: #333;
+            font-size: 0.8rem;
+            font-weight: bold;
+            &:hover{
+                color: #111;
+                cursor: pointer;
+            }
+        }
+    }
+}

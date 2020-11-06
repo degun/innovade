@@ -34,7 +34,13 @@ export const getProductsByCollection = gql`
                             }
                         }
                     }
-                    
+                    variants(first: 1){
+                        edges{
+                            node{
+                                id
+                            }
+                        }
+                    }                    
                     }
                 }
                 }

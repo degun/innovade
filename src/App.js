@@ -174,6 +174,7 @@ class App extends Component {
           isCartOpen={this.state.isCartOpen}
           handleCartClose={this.handleCartClose}
           customerAccessToken={this.state.customerAccessToken}
+          addItem={this.addVariantToCart}
         />
         <ContactForm
           isOpen={this.state.contact}

@@ -2,7 +2,7 @@ import React from 'react';
 import LineItem from '../LineItem';
 import Accessories from './components/Accessories';
 
-function Cart ({checkout, removeLineItemInCart, updateLineItemInCart, isCartOpen, handleCartClose}) {
+function Cart ({checkout, removeLineItemInCart, updateLineItemInCart, isCartOpen, handleCartClose, addItem}) {
 
   let line_items = checkout.lineItems.edges.map((line_item) => {
     return (
@@ -28,11 +28,11 @@ function Cart ({checkout, removeLineItemInCart, updateLineItemInCart, isCartOpen
       <ul className="Cart__line-items">
         {line_items}
       </ul>
+      {checkout.lineItems.edges.length ? <div className="extras">
+          <h4>People have also bought:</h4>
+          <Accessories closeCart={handleCartClose} addItem={addItem} />
+      </div> : null}
       <footer className="Cart__footer">
-        <div className="extras">
-            <h4>People have also bought:</h4>
-            <Accessories />
-        </div>
         <div className="Cart-info clearfix">
           <div className="Cart-info__total Cart-info__small">Subtotal</div>
           <div className="Cart-info__pricing">

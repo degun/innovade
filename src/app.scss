@@ -190,6 +190,17 @@ body,
   }
 }
 
+.Cart .extras{
+  border-top: 1px solid #e5e5e5;
+  width: 100%;
+  padding: 20px;
+  h4{
+    font-size: 0.9rem;
+    color: #666;
+    font-weight: normal;
+  }
+}
+
 .Cart__footer {
   padding: 20px;
   border-top: 1px solid #e5e5e5;
