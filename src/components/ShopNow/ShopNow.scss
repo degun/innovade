@@ -63,6 +63,12 @@
     font-size: 2rem;
     letter-spacing: -2px;
     color: black;
+    span{
+      text-decoration: line-through;
+      color: #666;
+      font-size: 1.6rem;
+      margin-left: 30px;
+    }
   }
   .Color-text {
     color: rgb(80, 79, 79);

@@ -14,25 +14,31 @@ const ShopAllProducts = () => {
   const { data: byCollectionData} = useQuery(getProductsByCollection, {variables: {handle: collection}})
 
   const products = productsData?.products?.edges?.map(({node}) => {
-    const {title, description, images, handle, priceRange} = node;
+    const {handle, description, title, images, priceRange, compareAtPriceRange} = node;
+    const compareAtPrice = compareAtPriceRange?.minVariantPrice?.amount ?? 0;
+    const price = priceRange?.minVariantPrice?.amount ?? 0;
     return {
       title,
       handle,
       description,
       image: images?.edges[0]?.node?.src ?? "",
-      price: priceRange?.minVariantPrice?.amount ?? 0
+      price,
+      discount: price === compareAtPrice ? 0 : Math.round((1 - parseFloat(compareAtPrice)/parseFloat(price)) * 100)
     }
   }) ?? []
 
   const productsByCollection = byCollectionData?.collectionByHandle?.products?.edges?.map(({node}) => {
-    const {title, description, images, handle, priceRange} = node;
-    console.log(images)
+    const {handle, description, title, images, priceRange, compareAtPriceRange} = node;
+    const compareAtPrice = compareAtPriceRange?.minVariantPrice?.amount ?? 0;
+    const price = priceRange?.minVariantPrice?.amount ?? 0;
     return {
       title,
       handle,
       description,
+      name: title,
       image: images?.edges[0]?.node?.src ?? "",
-      price: priceRange?.minVariantPrice?.amount ?? 0
+      price,
+      discount: price === compareAtPrice ? 0 : Math.round((1 - parseFloat(compareAtPrice)/parseFloat(price)) * 100)
     }
   }) ?? []
 

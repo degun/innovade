@@ -6,9 +6,11 @@ import { STAMPED_HOST, STAMPED_USERNAME, STAMPED_PASSWORD } from '../../../confi
 const CustomerReview = () => {
 
   const [reviews, setReviews] = useState([]);
+  const [called, setCalled] = useState(false);
 
   const token = Buffer.from(`${STAMPED_USERNAME}:${STAMPED_PASSWORD}`, 'utf8').toString('base64');
 
+  if(!called)
   axios.get(`${STAMPED_HOST}`, {headers: {
     "Authorization": `Basic ${token}`
   }}).then(({data}) => {
@@ -16,6 +18,7 @@ const CustomerReview = () => {
       const {author, body, rating, title, productTitle} = review;
       return {author, body, rating, title, productTitle}
     }))
+    setCalled(true)
   })
   .catch(e => console.log(e))
   

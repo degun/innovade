@@ -22,7 +22,7 @@ const BestModel = ({ title, description, image, price, handle, button }) => {
           {description}
         </div>
         <div style={{marginBottom: "20px"}} className="Model__price">{Intl.NumberFormat('it-IT', { style: 'currency', currency: 'EUR' }).format(price)}</div>
-        {button ? <Link to={`/products/${handle}`}><Button>View</Button></Link> : null}
+        {button ? <Link to={`/products/${handle}`}><Button>Buy now</Button></Link> : null}
       </div>
     </React.Fragment>
   );

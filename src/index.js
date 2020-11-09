@@ -13,7 +13,7 @@ import { SHOPIFY_HOST } from './config';
 import reducer from './store/reducer'
 
 const httpLink = createHttpLink({
-  uri: `${SHOPIFY_HOST}/graphql`,
+  uri: `${SHOPIFY_HOST}/graphql.json`,
 });
 
 const middlewareLink = setContext(() => ({

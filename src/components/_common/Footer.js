@@ -96,7 +96,7 @@ const Footer = ({ openContactForm }) => {
               anchorOrigin={{ vertical:'bottom', horizontal:'center' }}
               open={error}
               onClose={() => setError(false)}
-              key='snak'
+              key='snak-error'
             >
               <Alert severity="error">There was an error during the subscription process.</Alert>
             </Snackbar>

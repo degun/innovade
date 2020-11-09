@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import Rate from "./Rate";
 import Button from "../../Button";
 import Accordation from "./Accordation";
 import "./SingleProduct.scss";
 
 const SingleProduct = ({ addItem, variants, data }) => {
+
+  console.log(variants)
   
   const [selected, setSelected] = useState(0);
   const [selectedVariant, setSelectedVariant] = useState(0);
@@ -41,6 +42,10 @@ const SingleProduct = ({ addItem, variants, data }) => {
               style: "currency",
               currency: "EUR",
             }).format(thisVariant.price)}
+            {thisVariant.compareAtPrice ? <span>{Intl.NumberFormat("it-IT", {
+              style: "currency",
+              currency: "EUR",
+            }).format(thisVariant.compareAtPrice)}</span> : null}
           </div>
           <div className="Colors-available">
             <p className="Color-text">

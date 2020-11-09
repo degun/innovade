@@ -3,7 +3,7 @@ import { Switch, Route } from "react-router-dom";
 import PropTypes from "prop-types";
 import { graphql } from "react-apollo";
 import { flowRight as compose } from "lodash";
-import { getProducts } from './graphql/queries';
+import { getProductsByCollection } from './graphql/queries';
 import {
   createCheckout,
   checkoutLineItemsAdd,
@@ -119,18 +119,22 @@ class App extends Component {
       return <p>{this.props.data.error.message}</p>;
     }
 
-    const products = this.props.data?.products?.edges;
+    const products = this.props.data?.collectionByHandle?.products?.edges;
 
     const models = products.map(({ node }) => {
-      const {handle, description, title, images, priceRange} = node;
+      const {handle, description, title, images, priceRange, compareAtPriceRange} = node;
       const image = images.edges[0].node.src;
+      const compareAtPrice = compareAtPriceRange?.minVariantPrice?.amount ?? 0;
+      const price = priceRange?.minVariantPrice?.amount ?? 0;
+      const dis = compareAtPrice === 0 ? 0 : parseFloat(compareAtPrice)/parseFloat(price)
       return {
         title,
         handle,
         description,
         name: title,
         image,
-        price: priceRange?.minVariantPrice?.amount ?? 0
+        price,
+        discount: dis === 0  ? 0 : Math.round((1 - dis) * 100)
       };
     });
 
@@ -144,16 +148,7 @@ class App extends Component {
           openContactForm={this.openContactForm}
         />
         <Switch>
-          <Route
-            exact
-            path="/"
-            render={() => (
-              <Home
-                models={models}
-                checkout={this.state.checkout}
-              />
-            )}
-          />
+          <Route exact path="/" render={() => (<Home models={models} checkout={this.state.checkout} />)} />
           <Route exact path="/about" render={() => <About />} />
           <Route exact path="/experience" render={() => <Experience />} />
           <Route exact path="/news" render={() => <News />} />
@@ -186,7 +181,7 @@ class App extends Component {
 }
 
 const AppWithDataAndMutation = compose(
-  graphql(getProducts, {options: {variables: {first: 100}}}),
+  graphql(getProductsByCollection, {options: {variables: {handle: "frontpage"}}}),
   graphql(createCheckout, { name: "createCheckout" }),
   graphql(checkoutLineItemsAdd, { name: "checkoutLineItemsAdd" }),
   graphql(checkoutLineItemsUpdate, { name: "checkoutLineItemsUpdate" }),

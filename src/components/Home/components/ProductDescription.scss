@@ -12,6 +12,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     padding-top: 120px;
+    position: relative;
   }
   
   .Details__wrapper,
@@ -48,6 +49,9 @@
     justify-content: flex-end;
     align-items: flex-end;
     text-align: center;
+    position: absolute;
+    right: 5%;
+    bottom: 10%;
   }
   
   .Join__text {
@@ -147,7 +151,7 @@
     .Tech__wrapper {
       width: 100% !important;
       height: 100% !important;
-      height: 350px !important;
+      height: 400px !important;
       padding-top: 30px !important;
     }
     .Details__wrapper {
