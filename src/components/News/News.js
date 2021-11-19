@@ -12,11 +12,12 @@ const News = () => {
   const [total, setTotal] = useState(0);
   if (!called) {
     axios
-      .get(`${WORDPRESS_HOST}/wp-json/wp/v2/posts?_fields=title,date,id,featured_media&per_page=${perPage}`)
+      .get(`${WORDPRESS_HOST}/wp-json/wp/v2/posts?_fields=title,date,id,featured_media&per_page=${perPage}&_embed`)
       .then(async ({ data, headers }) => {
         setTotal(headers['x-wp-total']);
-        const posts = await Promise.all(data.map(async ({ id, title, date, featured_media }) => {
-          let image = "";
+        const posts = await Promise.all(data.map(async (posttt) => {
+          const { id, title, date, featured_media } = posttt;
+          console.log(posttt);
           return await axios
             .get(`${WORDPRESS_HOST}/wp-json/wp/v2/media/${featured_media}?_fields=source_url`)
             .then(({ data }) => {
@@ -27,6 +28,14 @@ const News = () => {
                 image: data.source_url
               };
             })
+          .catch(() => {
+            return {
+              id,
+              title: title.rendered,
+              date: moment(date).format("DD.MM"),
+              image: ""
+            };
+          })
         }));
         setPosts(posts)
         setCalled(true);
@@ -38,7 +47,8 @@ const News = () => {
   }
 
   const tailLength = posts.length % 3 || 3;
-  console.log(tailLength)
+
+  console.log(posts)
 
   return (
     <React.Fragment>
@@ -63,7 +73,6 @@ const News = () => {
           </div>
         </div>
       </div>
-      
     </React.Fragment>
   );
 };
