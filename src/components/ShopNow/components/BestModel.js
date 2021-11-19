@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 import Button from '../../Button';
-import Rate from "./Rate";
 
 const BestModel = ({ title, description, image, price, handle, button }) => {
   return (
@@ -21,7 +20,7 @@ const BestModel = ({ title, description, image, price, handle, button }) => {
         <div className="BestModel__desc">
           {description}
         </div>
-        <div style={{marginBottom: "20px"}} className="Model__price">{Intl.NumberFormat('it-IT', { style: 'currency', currency: 'EUR' }).format(price)}</div>
+        <div style={{marginBottom: "20px"}} className="Model__price">€ {parseInt(price)}</div>
         {button ? <Link to={`/products/${handle}`}><Button>Buy now</Button></Link> : null}
       </div>
     </React.Fragment>

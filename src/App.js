@@ -96,6 +96,7 @@ class App extends Component {
   };
 
   closeMobileMenu = () => {
+    window.scrollTo(0,0)
     this.setState({ click: false });
   };
 

@@ -126,6 +126,8 @@ export const getProduct = gql`
             node {
                 id
                 title
+                availableForSale
+                quantityAvailable
                 selectedOptions {
                     name
                     value

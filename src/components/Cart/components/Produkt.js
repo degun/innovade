@@ -16,7 +16,7 @@ const Produkt = ({ id, title, description, image, price, handle, closeCart, addI
         <div className="Produkt__desc">
           {description}
         </div>
-        <div style={{marginBottom: "20px"}} className="Produkt__price">{Intl.NumberFormat('it-IT', { style: 'currency', currency: 'EUR' }).format(price)}</div>
+        <div style={{marginBottom: "20px"}} className="Produkt__price">€ {Math.round(price * 100) / 100}</div>
         <div className="Produkt__buttons">
           <Link className="cart-link" to={`/products/${handle}`} onClick={closeCart}>View</Link>
           <div className="cart-link" onClick={() => addItem(id, 1)}>Add</div>

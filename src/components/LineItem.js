@@ -38,7 +38,7 @@ class LineItem extends Component {
               <button className="Line-item__quantity-update" onClick={() => this.incrementQuantity(this.props.line_item.id)}>+</button>
             </div>
             <span className="Line-item__price">
-              {Intl.NumberFormat('it-IT', { style: 'currency', currency: 'EUR' }).format(this.props.line_item.quantity * this.props.line_item.variant.price)}
+              € {parseInt(this.props.line_item.quantity * this.props.line_item.variant.price)}
             </span>
             <button className="Line-item__remove" onClick={()=> this.props.removeLineItemInCart(this.props.line_item.id)}>×</button>
           </div>

@@ -4,6 +4,8 @@ import Accessories from './components/Accessories';
 
 function Cart ({checkout, removeLineItemInCart, updateLineItemInCart, isCartOpen, handleCartClose, addItem}) {
 
+  const { subtotalPrice, totalTax, totalPrice } = checkout;
+
   let line_items = checkout.lineItems.edges.map((line_item) => {
     return (
       <LineItem
@@ -36,19 +38,19 @@ function Cart ({checkout, removeLineItemInCart, updateLineItemInCart, isCartOpen
         <div className="Cart-info clearfix">
           <div className="Cart-info__total Cart-info__small">Subtotal</div>
           <div className="Cart-info__pricing">
-            <span className="pricing">{Intl.NumberFormat('it-IT', { style: 'currency', currency: 'EUR' }).format(checkout.subtotalPrice)}</span>
+            <span className="pricing">€ {parseInt(subtotalPrice)}</span>
           </div>
         </div>
         <div className="Cart-info clearfix">
           <div className="Cart-info__total Cart-info__small">Taxes</div>
           <div className="Cart-info__pricing">
-            <span className="pricing">{Intl.NumberFormat('it-IT', { style: 'currency', currency: 'EUR' }).format(checkout.totalTax)}</span>
+            <span className="pricing">€ {parseInt(totalTax)}</span>
           </div>
         </div>
         <div className="Cart-info clearfix">
           <div className="Cart-info__total Cart-info__small">Total</div>
           <div className="Cart-info__pricing">
-            <span className="pricing">{Intl.NumberFormat('it-IT', { style: 'currency', currency: 'EUR' }).format(checkout.totalPrice)}</span>
+            <span className="pricing">€ {parseInt(totalPrice)}</span>
           </div>
         </div>
         <div className="Button_wrapper" style={{paddingTop: "40px", width: "100%"}}>

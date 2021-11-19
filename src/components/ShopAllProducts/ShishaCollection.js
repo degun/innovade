@@ -14,8 +14,6 @@ export default function RouterBreadcrumbs({setCollection, collection}) {
     return { handle, title }
   }) ?? [];
 
-  console.log(collections)
-
   return (
       <div id="dropdown-menu">
         <div className="Shisha-wrapper">

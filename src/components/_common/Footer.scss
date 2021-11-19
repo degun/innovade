@@ -31,6 +31,10 @@
     font-weight: 400;
     font-style: normal;
   }
+
+  .link_item:hover{
+    cursor: pointer;
+  }
   
   .footer_items {
     padding: 100px 150px 0 125px;
@@ -43,10 +47,24 @@
     padding-top: 60px;
     align-content: center;
     margin: 0 auto;
+    border-bottom: 1px solid white;
+    .subscribe{
+      position: relative;
+      .MuiSnackbar-root{
+        position: absolute;
+        left: 180px;
+        top: -100px;
+      }
+    }
+    
     .Button_wrapper {
       margin-top: 30px;
       .Button{
         background-color: #222;
+        &:disabled{
+          background-color: #777;
+          color: #444;
+        }
       }
     }
     .MuiTextField-root{
@@ -56,9 +74,36 @@
       }
     }
   }
+
+  @keyframes appear{
+    0%{
+      opacity: 0;
+    }
+    100%{
+      opacity: 1;
+    }
+  }
   
+  .thankyou{
+    min-height: 225px;
+    font-family: "WorkSans-Regular";
+    color: white;
+    animation: appear 1s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-bottom: 40px;
+    strong{
+      margin-top: 20px;
+      color: #56bad9;
+      &:hover{
+        color: white;
+        cursor: pointer;
+      }
+    }
+  }
+
   .footer_text {
-    border-bottom: 1px solid white;
     width: 100%;
     padding-bottom: 30px;
     font-family: "WorkSans-Regular";
@@ -125,6 +170,7 @@
     .footer__desc {
       padding: 80px 0px 0 0px !important;
       width: 100% !important;
+      
     }
   
     .footer_link {
