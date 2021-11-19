@@ -24,7 +24,7 @@ const Accessories = () => {
         <div className="Unique_description">
             <img src={require("../../../photos/Group 59@2x.png")} alt="Unique description" />
         </div>
-        <img className="threesixty" src={require("../../../photos/360@2x.png")} />
+        <img className="threesixty" alt="Shisha shown rotating in 360 degrees" src={require("../../../photos/360@2x.png")} />
     </div>
 };
 

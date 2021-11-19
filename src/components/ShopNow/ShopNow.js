@@ -17,12 +17,15 @@ const ShopNow = ({ match, addItem }) => {
   const v = data?.productByHandle?.variants?.edges ?? [];
   const variants =
     v.map(({ node }) => {
-      const { id, title, price, image } = node;
+      const { id, title, priceV2, compareAtPriceV2, image, availableForSale, quantityAvailable } = node;
       return {
         id,
         title,
-        price,
+        price: priceV2?.amount,
+        compareAtPrice: compareAtPriceV2?.amount,
         image: image.src,
+        availableForSale,
+        quantity: quantityAvailable
       };
   }) ?? [];
   

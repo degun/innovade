@@ -3,8 +3,7 @@ import "./Accordation.scss";
 
 const data = [
   {
-    title: "SHIPPING SPEC",
-    paragraph: "Shipping worldwide."
+    title: "Need help with this order? Email us: info@innovade.uk"
   },
 ];
 
@@ -33,7 +32,7 @@ class AccordionItem extends React.Component {
 
   render() {
     const {
-      props: { paragraph, title },
+      props: { title },
       state: { opened },
     } = this;
 
@@ -50,16 +49,6 @@ class AccordionItem extends React.Component {
       >
         <div {...{ className: "accordion-item__line" }}>
           <span {...{ className: "Product-desc" }}>{title}</span>
-          <span
-            {...{ className: "accordion-item__icon" }}
-            style={{ textAlign: "right" }}
-          />
-        </div>
-
-        <div {...{ className: "accordion-item__inner" }}>
-          <div {...{ className: "accordion-item__content" }}>
-            <p {...{ className: "accordion-item__paragraph" }}>{paragraph}</p>
-          </div>
         </div>
       </div>
     );

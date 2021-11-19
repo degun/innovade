@@ -25,7 +25,7 @@ nav {
     position: relative;
   }
   
-  .active {
+  .active:not(.shop) {
     .yellow__dot {
       text-align: center !important;
       background: #56bad9;
@@ -234,6 +234,7 @@ nav {
     justify-content: end;
     font-family: "ATSurt-Light";
     position: absolute;
+    z-index: 2;
   }
   
   .Ham__wrapper {
@@ -277,9 +278,11 @@ nav {
       font-weight: 400;
       font-style: normal;
     }
+    
     ul {
       justify-content: flex-start !important;
     }
+
     .reverse {
       height: 100%;
       width: 100%;
@@ -289,6 +292,11 @@ nav {
       justify-content: space-between;
       align-items: flex-start;
       padding: 100px 0 0 0;
+    }
+
+    .Social__section{
+      position: absolute;
+      bottom: 10px;
     }
     .Header__wrapper {
       height: 80px !important;

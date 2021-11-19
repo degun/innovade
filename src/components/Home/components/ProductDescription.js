@@ -30,9 +30,7 @@ const ProductDescription = () => {
           <div className="Join__text">
           Join the Experience
         </div>
-        <div className="Shisha__enthusiast">
-          for shisha<br/>enthusiasts
-        </div>
+        
           </div>
           <div className="Text__tech">
           We 
@@ -40,6 +38,9 @@ const ProductDescription = () => {
           created a<br />
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;feeling <br/>
           {/* <div className="Technology__text">Technology</div> */}
+          <div className="Shisha__enthusiast">
+            for shisha<br/>enthusiasts
+          </div>
         </div>
       </div>
       <div className="Details__wrapper">

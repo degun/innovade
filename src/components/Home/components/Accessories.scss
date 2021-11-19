@@ -6,7 +6,7 @@
     background-color: #f3f3f3 !important;
     background: url("../../../photos/smoke2x.png") center no-repeat;
     background-size: cover;
-    height: 650px;
+    height: 600px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -37,7 +37,7 @@
         align-items: center;
       }
       img {
-        height: 450px;
+        height: 50%;
         width: auto;
         margin-left: -20px;
       }
@@ -49,21 +49,21 @@
       align-items: center;
       height: 100%;
       img {
-        height: 45%;
-        margin-right: 0px;
+        height: 35%;
+        margin-right: 5px;
       }
     }
     img.threesixty {
       width: 60px;
       opacity: 0.6;
-      margin-top: 400px;
+      margin-top: 380px;
       margin-left: -20px;
     }
   }
   
   @media only screen and (max-width: 768px) {
     .Accessories__wrapper {
-      height: 500px;
+      height: 400px;
     }
   }
   @media only screen and (max-width: 600px) {
@@ -72,6 +72,7 @@
     }
   }
   @media only screen and (max-width: 480px) {
+
     .Accessories__wrapper .Unique__title {
       font-size: 4.5rem;
     }
@@ -88,7 +89,7 @@
       height: 480px;
       background-size: cover;
       .Unique_description{
-        height: 90% !important;
+        height: 80% !important;
       }
     }
   }

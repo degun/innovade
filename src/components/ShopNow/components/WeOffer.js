@@ -22,8 +22,8 @@ const WeOffer = (props) => {
           alt=""
         />
         <br />
-        <p className="Shipping-title">REMARKABLE QUALITY</p>
-        <p className="Shipping-desc">Build quality nowhere else to be found</p>
+        <p className="Shipping-title">ENGINEERED IN GERMANY</p>
+        <p className="Shipping-desc">Made in Italy</p>
       </div>
       <div className="Shipping">
         <img
@@ -33,8 +33,8 @@ const WeOffer = (props) => {
           alt=""
         />
         <br />
-        <p className="Shipping-title">ONE YEAR WARRANTY</p>
-        <p className="Shipping-desc">Full covearage of any issues</p>
+        <p className="Shipping-title">UNIQUE DESIGN</p>
+        <p className="Shipping-desc">Registered and Patented</p>
       </div>
     </div>
   );

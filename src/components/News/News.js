@@ -15,9 +15,7 @@ const News = () => {
       .get(`${WORDPRESS_HOST}/wp-json/wp/v2/posts?_fields=title,date,id,featured_media&per_page=${perPage}&_embed`)
       .then(async ({ data, headers }) => {
         setTotal(headers['x-wp-total']);
-        const posts = await Promise.all(data.map(async (posttt) => {
-          const { id, title, date, featured_media } = posttt;
-          console.log(posttt);
+        const posts = await Promise.all(data.map(async ({ id, title, date, featured_media }) => {
           return await axios
             .get(`${WORDPRESS_HOST}/wp-json/wp/v2/media/${featured_media}?_fields=source_url`)
             .then(({ data }) => {
@@ -64,12 +62,12 @@ const News = () => {
             {posts.map((post, i) => <SingleNews {...post} last={(posts.length - i - 1) < tailLength} />)}
           </div>
           <div className="see-more">
-            {total > perPage ? <a onClick={() => {
+            {total > perPage ? <div onClick={() => {
               setPerPage(perPage + 9);
               setCalled(false);
-            }} href="#">
+            }}>
               <span className="see_more">see more...</span>
-            </a> : null}
+            </div> : null}
           </div>
         </div>
       </div>

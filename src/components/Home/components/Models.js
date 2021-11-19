@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useRef } from "react";
 import Model from "./Model";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -6,6 +6,8 @@ import "slick-carousel/slick/slick-theme.css";
 import './Models.scss';
 
 const Models = ({models}) => {
+
+    const slider = useRef(null);
   
     const settings = {
       speed: 500,
@@ -16,7 +18,6 @@ const Models = ({models}) => {
       draggable: true,
       autoplay: true,
       pauseOnFocus: true,
-
       responsive: [
         {
           breakpoint: 766,
@@ -59,9 +60,11 @@ const Models = ({models}) => {
     return (
       <React.Fragment>
         <div className="Models__wrapper" id="Models">
-          <Slider {...settings} ref={(slider) => slider}>
+        <i style={{position: "absolute", left: "5%", top: "45%", fontSize: "2rem", color: "#333", zIndex: 1000}} onClick={slider.current?.slickPrev} class="fa fa-angle-left left-arrow" />
+          <Slider {...settings} ref={slider}>
             {modelItems}
           </Slider>
+          <i style={{position: "absolute", right: "5%", top: "45%", fontSize: "2rem", color: "#333", zIndex: 1000}} onClick={slider.current?.slickNext} class="fa fa-angle-right right-arrow" />
         </div>
       </React.Fragment>
     );

@@ -14,14 +14,12 @@ export default function RouterBreadcrumbs({setCollection, collection}) {
     return { handle, title }
   }) ?? [];
 
-  console.log(collections)
-
   return (
       <div id="dropdown-menu">
         <div className="Shisha-wrapper">
-          <div className="Shisha-title">Shishas</div>
+          <div className="Shisha-title">Shop</div>
           <div className="Shisha-text">
-            This is our collection of shishas. 
+            All Innovade Products.
           </div>
         </div>
         <nav id="alignment-nav" aria-label="product filters" >

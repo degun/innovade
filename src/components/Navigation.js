@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from "react-scroll";
-import { Link as RLink } from 'react-router-dom';
+import { Link as RLink, withRouter } from 'react-router-dom';
 
-const Navigation = ({click, closeMobileMenu, handleClick, handleCartOpen, openContactForm}) => {
+const Navigation = ({click, closeMobileMenu, handleClick, handleCartOpen, match}) => {
+    const { pathname } = window.location;
     return(
         <nav className="FrontPage__wrapper">
           <div
@@ -34,7 +35,7 @@ const Navigation = ({click, closeMobileMenu, handleClick, handleCartOpen, openCo
             >
               <li className="List__item">
                 <Link
-                    className="click"
+                    className={`click ${pathname === "/shop" ? "shop" : ""}`}
                     id="test"
                     onClick={closeMobileMenu}
                     offset={-100}
@@ -50,7 +51,7 @@ const Navigation = ({click, closeMobileMenu, handleClick, handleCartOpen, openCo
 
               <li className="List__item">
                 <Link
-                    className="click"
+                    className={`click ${pathname === "/shop" ? "shop" : ""}`}
                     onClick={closeMobileMenu}
                     activeClass="active"
                     offset={-60}
@@ -64,7 +65,7 @@ const Navigation = ({click, closeMobileMenu, handleClick, handleCartOpen, openCo
               </li>
               <li className="List__item">
                 <Link
-                    className="click"
+                    className={`click ${pathname === "/shop" ? "shop" : ""}`}
                     onClick={closeMobileMenu}
                     activeClass="active"
                     offset={-5}
@@ -76,8 +77,17 @@ const Navigation = ({click, closeMobileMenu, handleClick, handleCartOpen, openCo
                     <RLink to="/">Explore</RLink><span className="yellow__dot">&nbsp;</span>
                 </Link>
               </li>
-              
 
+              <li className="List__item">
+                <Link
+                    className={`click ${pathname === '/shop' ? "active" : ""}`}
+                    onClick={closeMobileMenu}
+                    activeClass="active"
+                    to="Shop"
+                >
+                    <RLink to="/shop">Shop</RLink><span className="yellow__dot">&nbsp;</span>
+                </Link>
+              </li>
               <li className="List__item">
                   <div className="App__view-cart-wrapper click">
                     <button
@@ -101,4 +111,4 @@ const Navigation = ({click, closeMobileMenu, handleClick, handleCartOpen, openCo
     )
 }
 
-export default Navigation;
+export default withRouter(Navigation);

@@ -24,8 +24,15 @@ export const getProductsByCollection = gql`
                     title
                     description
                     priceRange{
-                        maxVariantPrice{amount} minVariantPrice{amount}
-                    }
+                        minVariantPrice{
+                          amount
+                        }
+                      }
+                    compareAtPriceRange{
+                        minVariantPrice{
+                          amount
+                        }
+                      }
                     handle
                     images(first: 10) {
                         edges {
@@ -57,13 +64,34 @@ export const getProducts = gql`
         title
         description
         priceRange{
-            maxVariantPrice{amount} minVariantPrice{amount}
-        }
+            minVariantPrice{
+              amount
+            }
+          }
+        compareAtPriceRange{
+            minVariantPrice{
+              amount
+            }
+          }
         handle
         images(first: 10) {
             edges {
                 node {
                     src
+                }
+            }
+        }
+        variants(first: 5){
+            edges{
+                node{
+                    compareAtPriceV2{
+                        amount
+                    }
+                }
+                node{
+                    priceV2{
+                        amount
+                    }
                 }
             }
         }
@@ -98,6 +126,8 @@ export const getProduct = gql`
             node {
                 id
                 title
+                availableForSale
+                quantityAvailable
                 selectedOptions {
                     name
                     value
@@ -105,7 +135,9 @@ export const getProduct = gql`
                 image {
                     src
                 }
-                price
+                priceV2{amount}
+                compareAtPriceV2{amount}
+
             }
             }
         }

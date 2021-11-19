@@ -1,8 +1,6 @@
 import React, {useState} from 'react';
 import Modal from 'react-modal';
 import TextField from '@material-ui/core/TextField';
-import Snackbar from '@material-ui/core/Snackbar';
-import Alert from '@material-ui/lab/Alert';
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import { WORDPRESS_HOST } from '../../config';
 import axios from 'axios';
@@ -29,8 +27,8 @@ function ContactForm({isOpen, closeModal}){
         zIndex: 2
       },
       content : {
-        position: 'relative',
-        backgroundColor: "#000"
+        backgroundColor: "#000",
+
       }
     };
 
@@ -41,7 +39,7 @@ function ContactForm({isOpen, closeModal}){
 
     function send(e){
       e.preventDefault();
-      axios.post(`${WORDPRESS_HOST}/wp-json/contact-form-7/v1/contact-forms/11/feedback`, formData, {
+      axios.post(`${WORDPRESS_HOST}/wp-json/contact-form-7/v1/contact-forms/5/feedback`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
@@ -73,7 +71,7 @@ function ContactForm({isOpen, closeModal}){
             <div onClick={closeModal} className="x">x</div>
             <h2>Let's talk</h2>
             <h4>Drop us a few lines</h4>
-            <form>
+            {sent ? <div className="ty">Thank you for contacting us!</div> : <form>
               <ThemeProvider theme={darkTheme}>
                 <div className="row">
                   <TextField style={{width: "47.5%", marginRight: "2.5%"}} color="primary" id="name" label="name" value={thename} onChange={({target}) => setName(target.value)} />
@@ -86,16 +84,8 @@ function ContactForm({isOpen, closeModal}){
                   <button onClick={send}>Send</button>
                 </div>
               </ThemeProvider>
-          </form>
+          </form>}
           </div>
-          <Snackbar
-            anchorOrigin={{ vertical:'bottom', horizontal:'center' }}
-            open={sent}
-            onClose={() => setSent(false)}
-            key='snak'
-          >
-            <Alert severity="success">Thank you for contacting us!</Alert>
-          </Snackbar>
         </Modal>
     )
 }

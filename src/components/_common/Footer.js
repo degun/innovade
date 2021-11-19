@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import axios from 'axios';
 import { Link } from "react-router-dom";
 import TextField from '@material-ui/core/TextField';
-import Snackbar from '@material-ui/core/Snackbar';
-import Alert from '@material-ui/lab/Alert';
 import Button from '../Button';
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import { WORDPRESS_HOST } from '../../config';
@@ -30,17 +28,11 @@ const Footer = ({ openContactForm }) => {
         setEmail("");
         setName("");
         setSent(true);
-        setTimeout(() => {
-          setSent(false)
-        }, 3000);
       }
     })
     .catch(e => {
       console.log(e);
       setError(true)
-      setTimeout(() => {
-        setError(false)
-      }, 3000);
     })
   }
 
@@ -65,18 +57,22 @@ const Footer = ({ openContactForm }) => {
               <Link to="/about">About</Link>
             </li>
             <li className="link_item">
-              <a onClick={openContactForm}>Contact</a>
+              <div onClick={openContactForm}>Contact</div>
             </li>
           </ul>
         </div>
       </div>
       <div className="footer__desc">
-        <div className="footer_text">
+        {sent ? <div className="thankyou">
+          Thank you for subscribing! Stay tuned!
+        </div> : error ? <div className="thankyou">
+          <div>There was an error during the subscription process.</div> <strong onClick={() => setError(false)}>Try again</strong>
+        </div> : <div className="footer_text">
           Sign up to our newsletter,
           <span className="nobr">
             <br />
           </span>
-          to get our latest news.
+          to get our latest news &amp; offers.
           <br />
           <div className="subscribe">
             <ThemeProvider theme={darkTheme}>
@@ -84,24 +80,8 @@ const Footer = ({ openContactForm }) => {
               <TextField type="name" placeholder="Your name" onChange={({target}) => setName(target.value)} /> 
               <Button onClick={subscribe}>Sign up</Button>
             </ThemeProvider>
-            <Snackbar
-              anchorOrigin={{ vertical:'bottom', horizontal:'center' }}
-              open={sent}
-              onClose={() => setSent(false)}
-              key='snak'
-            >
-              <Alert severity="success">Thank you for subscribing! Stay tuned!</Alert>
-            </Snackbar>
-            <Snackbar
-              anchorOrigin={{ vertical:'bottom', horizontal:'center' }}
-              open={error}
-              onClose={() => setError(false)}
-              key='snak'
-            >
-              <Alert severity="error">There was an error during the subscription process.</Alert>
-            </Snackbar>
           </div> 
-        </div>
+        </div>}
       </div>
 
       <div className="Copyright">

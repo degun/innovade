@@ -80,8 +80,8 @@ const FrontPage = ({ models }) => {
           </div>
         <div className="Height"></div>
         <div className="Social__section">
-          <a href="https://www.instagram.com/">Instagram</a>&nbsp;/&nbsp;
-          <a href="https://www.facebook.com/">Facebook</a>
+          <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/innovade.uk/">Instagram</a>&nbsp;/&nbsp;
+          <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/innovade.uk">Facebook</a>
         </div>
       </div>
     </React.Fragment>
